@@ -1,0 +1,1064 @@
+export const ch53 = {
+  id: "miller_ch53",
+  chapterNumber: 53,
+  title: "Anesthesia for Neurologic Surgery and Neurointerventions v2",
+  bookId: "miller",
+  readTimeMinutes: 54,
+  sections: [
+    {
+      title: `Section 1`,
+      content: `ANESTHESIA FOR NEUROLOGIC SURGERY AND`
+    },
+    {
+      title: `NEUROINTERVENTIONS`,
+      content: `COMPREHENSIVE BOARD REVIEW EXAMINATION STUDY GUIDE (CHAPTER 53)
+I. Core Key Points & Principles
+Intracranial  Subcompartments: For  controlling  intracranial  pressure  (ICP),  the  intracranial  space
+consists of four distinct subcompartments: cells (neurons, glia, tumors, extravasated blood), interstitial and
+intracellular fluid, cerebrospinal fluid (CSF), and blood.
+Preoperative  Compliance  Assessment: A  preoperative  assessment  of  the  probable  intracranial
+compliance reserve must serve as the basis for selecting appropriate anesthetic drugs and techniques.
+Venous Circulation: The venous side of the cerebral circulation is a largely passive compartment that
+frequently causes increased ICP or an intraoperative "tightness" of the surgical field.
+Cerebral Perfusion Pressure (CPP) Support:  CPP should be supported at or near normal waking levels
+in patients with recent cerebral injuries (e.g., traumatic brain injury [TBI], subarachnoid hemorrhage [SAH])
+and spinal cord injury due to low resting cerebral blood flow (CBF) and impaired autoregulation.
+Sitting  Position  References: During  procedures  performed  in  the  sitting  position,  blood  pressure
+measurements must be corrected to the level of the external auditory meatus, and the mean arterial
+pressure (MAP) must be maintained at a minimum of 60 mm Hg in normotensive adults.
+Venous Air Embolism (VAE) Monitoring:  Monitoring for VAE in at-risk situations includes precordial
+Doppler and end-tidal carbon dioxide (ET-CO2) analysis.
+Therapeutic  Hypothermia  Limitations: Despite  encouraging  preclinical  data,  therapeutic  mild
+hypothermia cannot be advocated in the care of head-injured patients in the ICU or during the operative
+management of patients with intracranial aneurysms because human clinical trials have yielded negative
+results.
+Acute SAH Management:  The most critical consideration in the anesthetic management of patients
+undergoing clipping or coiling after acute SAH is the prevention of paroxysmal hypertension to avoid
+aneurysm rerupture. Adequate perfusion pressure must be maintained if temporary clips are deployed.
+Induced Hypotension:  Elective induced hypotension is rarely used in aneurysm surgery, but clinicians
+must stand ready to reduce blood pressure immediately and accurately in the event of intraoperative
+aneurysm rupture.
+Airway Management with Cervical Spine Injury:  Tracheal intubation of a head-injured patient with an
+undefined cervical spine injury can be accomplished using rapid sequence induction with manual in-line
+stabilization (the occiput held rigidly to the backboard), conveying only a very small risk of spinal cord
+injury.
+TBI Perfusion Ranges: Following TBI in adults, CPP ( CPP = MAP - ICP ) should be supported to a target
+range of 60 to 70 mm Hg within the first 48 to 72 hours.
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 1 of 27
+
+Hypocapnia Hazards:  Hypocapnia carries the potential to induce cerebral ischemia, particularly in a
+recently  injured  brain  or  tissue  underneath  surgical  retractors.  It  should  be  used  exclusively  when
+absolutely necessary for the control of critically increased or uncertain ICP.
+BOX 53.1: RECURRENT ISSUES IN NEUROANESTHESIA CHECKLIST
+The practitioner must systematically review and establish an agreement with the surgeon regarding the
+following core variables at the outset of every neurosurgical procedure:
+• Control of ICP / brain relaxation • Management of PaCO2
+• Management of arterial blood pressure • Intravenous fluid management
+• Use of steroids, osmotherapy, and diuretics • Use of anticonvulsants
+• Patient positioning and positioning aids • Risk of pneumocephalus & VAE
+• Neurophysiologic monitoring constraints • Hypothermia & Glucose management
+• Plan for emergence from anesthesia
+II. Intracranial Pressure Control & Brain Relaxation
+Pathophysiology of Intracranial Hypertension
+When the cranium is closed, the main goals are maintaining adequate CPP (CPP = MAP - ICP) and preventing
+brain tissue herniation between intracranial compartments or through the foramen magnum. Once the dura is
+open, CPP is globally determined by the difference between MAP and jugular venous pressure (or central
+venous pressure), and locally by the difference between MAP and the pressure exerted under the surgical
+retractor.
+Clinical signs of increased ICP include headache (especially one that awakens the patient at night), nausea,
+vomiting, blurred vision, somnolence, and papiledema. Computed Tomography (CT) scan findings suggestive
+of increased ICP or reduced intracranial compliance include midline shift, obliteration of the basal cisterns
+(interpeduncular, quadrigeminal, and ambient cisterns), loss of sulci, ventricular effacement, or enlarged
+ventricles (in hydrocephalus). On radiographic imaging, edema appears as hypodensity on CT scans. On
+MRI,  cytotoxic  edema  is  characterized  by  diffusion  restriction,  whereas  vasogenic  edema  exhibits
+hyperintensity on T2-weighted sequences.
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 2 of 27
+
+Figure 53.3: The Intracranial Pressure-Volume Relationship
+The  volume-pressure  relationship  demonstrates  a  flat  plateau  phase  at  low  volumes,  reflecting  normal
+compensatory mechanisms. Compensation is accomplished by the translocation of CSF to the spinal space
+and venous blood to extracranial veins. Once these compensatory latitudes are exhausted, tiny incremental
+increases in volume lead to dramatic spikes in ICP, resulting in brain herniation or ischemic injury due to
+reduced perfusion pressure.
+Herniation Pathways (Figure 53.1)
+Sub-falcine: Cingulate gyrus displacement beneath the falx cerebri.
+Uncal  (Transtentorial): Medial  temporal  lobe  (uncus)  displacement  through  the  tentorial  incisura,
+compressing the brainstem.
+Cerebellar (Tonsillar): Cerebellar tonsils herniating through the foramen magnum.
+Transcalvarial: Brain tissue extruding through a craniotomy site or skull fracture.
+Subcompartment Volume Manipulation
+Techniques to control ICP are aligned with the targeted intracranial subcompartment as detailed in Table 53.1.
+Table 53.1: Intracranial Compartments and Techniques for Volume Manipulation
+Intracranial Volume
+Intracranial Pressure (ICP)
+Volume Compensation (CSF, Blood)
+Compensation Exhausted
+Herniation Risk
+1. 
+2. 
+3.`
+    },
+    {
+      title: `4.`,
+      content: `Anesthesia Board Review: Chapter 53 Summary Study Guide Page 3 of 27
+
+Compartment Constituents / Subtypes Volume Control Methods`
+    },
+    {
+      title: `1. Cells Neurons, glia, tumors,`,
+      content: `extravasated collections
+of blood
+Surgical removal / evacuation. Anesthesiologist must question
+contralateral mass lesions if brain bulges acutely after extra-axial
+hematoma evacuation.`
+    },
+    {
+      title: `2. Fluid Intracellular and`,
+      content: `interstitial fluid (edema)
+Diuretics (loop and osmotic agents) and Steroids (principally
+effective for tumor-associated edema and radiation necrosis).`
+    },
+    {
+      title: `3.`,
+      content: `Cerebrospinal
+Fluid
+Ventricular and
+subarachnoid CSF
+Surgical drainage via brain needle into a lateral ventricle or a
+lumbar CSF drain (contraindicated if high risk of uncal/tonsillar
+herniation exists). No rapid pharmacologic options relevant to the
+OR window.`
+    },
+    {
+      title: `4. Blood`,
+      content: `(Arterial)
+Arterial inflow and
+cerebral blood volume
+(CBV)
+Decreasing cerebral blood flow (CBF) by choosing appropriate
+vasoconstricting anesthetics and avoiding acute hypertension or
+vasodilators.`
+    },
+    {
+      title: `5. Blood`,
+      content: `(Venous)
+Venous outflow and
+passive capacitance
+volume
+Optimizing cerebral venous drainage via a 15-20° head-up
+posture, keeping head neutral, avoiding neck obstruction, and
+preventing elevated intrathoracic pressure.
+Venous and Arterial Considerations
+Engorgement of the passive venous compartment is a common cause of increased ICP or a "tight" surgical
+field.  Obstruction  can  be  caused  by  extremes  of  head  rotation,  neck  flexion,  tight  cervical  collars,  or
+endotracheal tube ties. Intrathoracic pressure elevations—such as from tension pneumothorax, excessive
+positive end-expiratory pressure (PEEP), bronchospasm gas trapping, or coughing/straining against the tube
+—impede venous return. Neuromuscular blockade is routinely employed during craniotomies to completely
+eliminate coughing, which could otherwise cause dramatic herniation of cerebral structures through the open
+craniotomy site.
+On the arterial side, increases in CBF generally increase CBV. A notable exception occurs during cerebral
+ischemia caused by profound hypotension or sudden vessel occlusion, where CBV increases because the
+vasculature dilates reflexively in response to a drastic drop in CBF. Anesthetics and physiologic variables must
+be managed tightly to avoid unnecessary increases in CBF when compliance is compromised.
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 4 of 27
+
+BOX 53.3: HIGH INTRACRANIAL PRESSURE ("TIGHT BRAIN") CHECKLIST
+Are relevant pressures controlled?
+Jugular  Venous  Pressure: Look  for  extreme  head  rotation,  neck  flexion,  direct  jugular
+compression, lack of head-up posture.
+Airway  Pressure: Check  for  airway  obstruction,  bronchospasm,  patient  straining/coughing
+(inadequate  relaxation),  pneumothorax,  or  excessive  PEEP/Airway  Pressure  Release  (APR)
+ventilation.
+Blood  Gas  Tensions: Rule  out  hypercapnia  (PaCO2 elevation)  or  profound  hypoxemia  (PaO2
+depression).
+Arterial Pressure: Manage sudden systemic hypertensive surges.
+Is the metabolic rate controlled?
+Assess for untreated surgical pain or light anesthesia arousal, active seizures, or a febrile state.
+Are any potential vasodilators in use?
+Evaluate  ongoing  administration  of  N2O,  volatile  agents,  nitroprusside,  or  calcium  channel
+blockers.
+Are there any unrecognized mass lesions?
+Rule  out  expanding  contralateral  hematomas,  trapped  intracranial  air  expanded  by  N2O,  or
+accumulated CSF from a clamped ventricular drain.
+BOX 53.4: METHODS FOR RAPID REDUCTION OF ICP AND BRAIN VOLUME
+If the checklist in Box 53.3 is exhausted and tightness persists, the following steps must be considered:
+Further acute reduction of PaCO2 via hyperventilation (but strictly not less than 23 to 25 mm Hg).
+Surgical CSF drainage via ventriculostomy or a brain needle.
+Administration of osmotic or loop diuretics (Hyperosmolar therapy with mannitol or hypertonic saline).
+Cerebral Metabolic Rate (CMR) suppression via boluses or infusions of barbiturates or propofol.
+MAP reduction if cerebral dysautoregulation is present and the field is pressure-passive.
+Surgical decompressive maneuvers (e.g., lobectomy or removal of the bone flap).
+III. Pharmacological Selection & Anesthetic Agents
+Intravenous Anesthetics, Analgesics, and Sedatives
+In general, intravenous agents cause parallel reductions in CBF and cerebral metabolic rate ( CMR), which
+helps preserve a favorable ICP profile. Autoregulation and carbon dioxide responsiveness are preserved
+1. 
+◦ 
+◦ 
+◦ 
+◦ 
+2. 
+◦ 
+3. 
+◦ 
+4. 
+◦ 
+• 
+• 
+• 
+• 
+• 
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 5 of 27
+
+during intravenous maintenance.  Ketamine is the explicit exception: when administered in large doses to
+patients  with  a  generally  normal  baseline  level  of  consciousness  prior  to  anesthesia,  it  can  cause  a
+disassociated increase in CBF and ICP.
+Barbiturates are the classic gold-standard agents for inducing deep reduction in CMR, achieving a coupled
+reduction in CBF and CBV. Propofol is frequently substituted for this purpose, but there is minimal human
+clinical trial data confirming its efficacy for ICP control compared to the extensive data backing barbiturates.
+Furthermore, prolonged propofol infusions in the ICU carry the risk of the frequently fatal Propofol Infusion
+Syndrome (PRIS), characterized by severe metabolic acidosis and rhabdomyolysis.
+Volatile Anesthetics and Nitrous Oxide
+All volatile anesthetics function as dose-dependent cerebral vasodilators. The specific established order of
+vasodilating potency is:  halothane → enflurane → desflurane → isoflurane → sevoflurane . The differences in
+CBF effects among desflurane, isoflurane, and sevoflurane are rarely clinically significant. The net effect of a
+volatile agent depends on concentration, prior  CMR depression, blood pressure shifts, and simultaneous
+PaCO2. In elective or mild cases, volatile agents can be safely combined with opioids at concentrations less
+than  1.0  MAC.  However,  when  intracranial  volume  compensation  is  entirely  exhausted  (indicated  by  a
+somnolent, vomiting patient with papiledema and a large mass, or a TBI patient with compressed basal
+cisterns), volatile agents and  N2O should be omitted in favor of a strict total intravenous anesthetic (TIVA)
+technique until the cranium and dura are open.
+Nitrous oxide ( N2O) is also a cerebral vasodilator. Its vasodilatory effect is greatest when administered as a
+sole anesthetic agent, intermediate when combined with volatile anesthetics, and least when administered
+against a background of narcotics, propofol, or benzodiazepines.
+Neuromuscular Blocking Drugs
+Histamine-Releasing  Agents: Nondepolarizing  muscle  relaxants  that  trigger  histamine  release  (e.g.,
+atracurium)  must  be  administered  slowly  in  small,  divided  doses  to  avoid  systemic  vasodilation  and
+subsequent reactive increases in CBF.
+Succinylcholine: Succinylcholine can increase ICP, but the increments are small, highly transient, and
+effectively blocked by a preceding defasciculating dose of a nondepolarizing relaxant. These transient
+increases are not evident in emergency neurosurgical conditions like acute TBI or SAH. Succinylcholine
+remains fully acceptable when rapid endotracheal intubation is required to secure an airway, provided it is
+paired with proper management of MAP. The necessity for succinylcholine has decreased due to the
+availability of rocuronium paired with sugammadex reversal.
+IV. Respiratory & Hemodynamic Management
+Management of PaCO2 (Hypocapnia and Hyperventilation)
+Hypocapnia induces cerebral vasoconstriction, decreasing CBF and CBV to rapidly reduce ICP. However, this
+physiological effect is temporary. Sustained hyperventilation triggers a compensatory response: via alterations
+in the function of the enzyme  carbonic anhydrase , the bicarbonate concentration in the CSF and brain
+• 
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 6 of 27
+
+extracellular fluid is actively reduced. Over a time course of 8 to 12 hours, the pH of these fluid compartments
+returns to normal, and CBF returns toward baseline levels despite a persistently low PaCO2.
+Figure 53.6: Temporal Adaptations of CSF pH and CBF to Prolonged Hypocapnia
+Clinical implications of this adaptation include:
+Patients must be hyperventilated only for as long as acute brain volume reduction is actively required. If
+adapted to a low baseline (PaCO2 23-25 mm Hg), further rescue hyperventilation is entirely ineffective and
+introduces a substantial risk of pulmonary barotrauma.
+Following chronic hyperventilation (e.g., days in the ICU), restoring  PaCO2 to normal levels must occur
+slowly over hours. A sudden increase back to a normal 40 mm Hg mimics a severe hypercapnic surge
+(e.g., 40 to 55 mm Hg) in a normocapnic patient, causing massive cerebral vasodilation and dangerous
+spikes in ICP.
+In  normal  subjects,  cerebral  ischemia  is  unlikely  to  occur  at  a  PaCO2 greater  than  20  mm  Hg.  EEG
+abnormalities and paresthesias manifest at values below 20 mm Hg (reversible via hyperbaric oxygenation,
+confirming  an  ischemic  origin).  Thus,  acute  hypocapnia  should  rarely  exceed  25  mm  Hg  in  previously
+normocapnic individuals. In an injured brain (TBI or acute SAH), baseline CBF is critically low within the first
+24  hours.  Prophylactic  hyperventilation  is  strictly  contraindicated  in  this  window  because  it  can  worsen
+regional tissue ischemia. It must be reserved as brief rescue therapy for imminent herniation or severe
+operative field tightness, and rapidly tapered off as the indication resolves. Once surgical retractors are
+removed, PaCO2 should be allowed to rise to minimize the post-craniotomy pneumatocele.
+Management of Arterial Blood Pressure & Autoregulation
+Autoregulation is frequently absent or severely impaired in injured brain regions, rendering tissue perfusion
+directly pressure-passive. Under these conditions, even modest drops in systemic blood pressure can cause
+severe regional ischemia. Systemic MAP must be supported to maintain a high-normal waking baseline to
+protect vulnerable areas or tissue compressed under surgical retractors. In patients with an acute spinal cord
+injury, or a spinal cord under active compression or surgical retraction (e.g., severe cervical spinal stenosis),
+arterial blood pressure must be aggressively maintained within 10% of the patient's average awake baseline.
+Current guidelines advocate supporting the MAP at 85 to 90 mm Hg for the first 7 days following an acute
+spinal cord injury.
+PaCO2
+Hyperventilate
+CSF pH
+CBF
+2h
+6h
+10h
+14h
+18h
+Time (h)
+• 
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 7 of 27
+
+Figure 53.7: Normal versus Absent Cerebral Autoregulation Curves
+V. Specific Therapies: Steroids, Osmotherapy, & Diuretics
+Corticosteroids
+Steroids reduce or limit edema formation associated *exclusively* with intracranial tumors and radiation-
+induced necrosis. They offer no benefit for edema resulting from other pathologies (such as TBI or stroke).
+The onset of action is too slow to manage acute intraoperative events: clinical improvement manifests within
+24 hours, but a measurable reduction in ICP or improvement in the viscoelastic properties of the intracranial
+space takes 48 to 72 hours. Prophylactic administration should ideally begin 48 hours prior to an elective
+craniotomy. Dexamethasone is the choice agent, typically dosed at 10 mg IV or PO initially, followed by 10
+mg every 6 hours. Steroid therapy has been completely abandoned in the care of TBI patients because large
+controlled trials demonstrated no benefit or an increased risk of mortality.
+Osmotherapy and Diuretics
+Mannitol: Mannitol is an intraoperative mainstay for rapid brain volume reduction. Doses range from 0.25
+g/kg to 100 g (1.0 g/kg is most common). While a low dose (0.25 g/kg) provides a comparable initial drop
+in ICP, its duration of action is significantly shorter than larger doses (1.0 to 1.5 g/kg), which provide
+superior surgical brain relaxation scores. Mannitol must be administered via slow infusion over 10 to 15
+minutes. Sudden, rapid bolus administration exposes the cerebral vasculature to extreme hyperosmolarity,
+triggering acute vasodilation that causes transient brain engorgement and paradoxical spikes in ICP. Over
+time, mannitol enters the parenchyma and gains access to the CSF space in small quantities, which can
+theoretically cause hypertonic rebound swelling if systemic osmolarity drops rapidly. Repeated dosing is
+safely  guided  by  checking  systemic  osmolarity,  with  an  established  upper  acceptable  threshold  of
+approximately 320 mOsm/L.
+Hypertonic Saline (HTS):  HTS is used increasingly in the neuro-ICU. While equiosmolar doses of HTS
+and mannitol achieve identical acute reductions in ICP, HTS carries a lower risk of severe diuresis and
+acute kidney injury during prolonged, repeated ICU administration. HTS may provide a superior combined
+effect on the cumulative ICP and CPP burden in TBI patients, though an explicit clinical outcome benefit
+remains  unproven.  Available  formulations  vary  widely  (3%,  7.5%,  15%,  and  23.4%),  preventing
+standardized dosing rules. HTS does not eliminate the risk of rebound swelling.
+MAP (mm Hg)
+CBF (mL/100g/min)
+Normal Autoregulation
+Absent / Pressure-Passive
+0
+50
+100
+150
+• 
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 8 of 27
+
+Diuretic  Combinations: Combining  an  osmotic  diuretic  with  a  loop  diuretic  (e.g.,  furosemide)  is
+sometimes  utilized.  Mechanistically,  mannitol  establishes  an  initial  osmotic  gradient,  while  furosemide
+hastens water excretion from the intravascular compartment to sustain that gradient. Furthermore, neurons
+and glia possess homeostatic mechanisms to recover cell volume when shrunken by hyperosmolarity,
+driven by accumulating  idiogenic osmoles , specifically chloride ions. Loop diuretics inhibit the specific
+chloride channels required for this transport, thereby retarding the cellular volume-restoration mechanism.
+This combination introduces an elevated risk of severe systemic hypovolemia and profound electrolyte
+derangements.
+VI. Surgical Positioning & Intraoperative Complications
+General Positioning Safety
+Neurosurgical procedures are frequently lengthy, requiring careful padding of all anatomical pressure points
+and avoiding excessive traction or pressure on peripheral nerves. Neurosurgical patients carry a high risk for
+thromboembolic  complications,  making  sequential  compression  devices  and  compression  stockings
+mandatory. For most cranial procedures, a 15 to 20° head-up tilt is standard to optimize passive venous
+drainage. Explicit exceptions include the evacuation of a chronic subdural hematoma (where patients are kept
+completely flat to discourage fluid reaccumulation) and occasionally following CSF shunting (kept flat to
+prevent rapid ventricular collapse and subsequent tearing of bridging veins).
+The application of a skull pin head holder ("Mayfield") triggers a precipitous, intense surge in blood pressure.
+The  clinician  must  preemptively  blunt  this  response  by  administering  anesthetic  boluses  (e.g.,  propofol,
+fentanyl,  remifentanil)  or  vasoactive  adjuncts  (labetalol  or  esmolol).  This  is  critical  in  patients  with  an
+unsecured intracranial aneurysm.
+Anatomical Positions & Specific Risks
+Supine: Head neutral or rotated. Extreme head rotation can completely obstruct jugular venous drainage;
+a shoulder roll should be placed to attenuate this. A chaise longue (lawn chair) configuration (hip flexion,
+pillows under knees, slight reverse Trendelenburg) optimizes venous return and reduces back strain.
+Semilateral (Jannetta): Poplarized for retromastoid access (e.g., microvascular decompression of CN V).
+Achieved via a 10 to 20° lateral table tilt and a generous shoulder roll. Extreme head rotation must be
+avoided to prevent the chin from compressing the contralateral jugular vein.
+Lateral: Provides access to posterior parietal/occipital lobes and lateral posterior fossa. An axillary roll is
+mandatory to prevent brachial plexus compression injury.
+Prone: Utilized for spinal, occipital, and posterior fossa access. The final position incorporates neck
+flexion, reverse Trendelenburg, and leg elevation to bring the field horizontal. VAE is an inherent risk due to
+subatmospheric venous pressure in frames like the Wilson, Andrews, or Jackson frame, which successfully
+minimize inferior vena cava compression to prevent epidural plexus bleeding. 
+Ocular Risks: Orbital compression causing central retinal vessel occlusion can lead to irreversible retinal
+ischemia and blindness. Direct eye pressure must be checked intermittently (every 15 minutes) and after
+any head movement. However, Posterior Ischemic Optic Neuropathy (PION)  is a more frequent cause
+• 
+• 
+• 
+• 
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 9 of 27
+
+of Postoperative Vision Loss (POVL) than direct compression. PION is statistically correlated with lengthy
+procedures,  large  blood  loss,  a  Wilson  frame  configuration,  and  large-volume  crystalloid  fluid
+administration. 
+Macroglossia: Severe neck flexion reduces the anterior-posterior dimension of the oropharynx. In the
+presence of foreign bodies (oral airways, esophageal stethoscopes), compression ischemia of the base of
+the tongue occurs. Reperfusion post-procedure triggers rapid edema accumulation, causing severe upper
+airway obstruction upon extubation. To mitigate this, a minimum of 2 to 3 fingerbreadths of submandibular
+space must be preserved between the chin and neck. Intubated patients require a rolled gauze bite block
+to prevent the tongue from protruding and becoming trapped between teeth as facial swelling evolves,
+without adding oropharyngeal bulk. 
+Brachial Plexus Protection: Avoid exceeding a "90-90" position (arms abducted ≤ 90°, elbows extended ≤
+90°), ensuring the elbow is positioned anterior to the shoulder to prevent the plexus from wrapping around
+the humeral head.
+Sitting Position (Modified Recumbent):  Legs must be kept as high as possible with pillows under the
+knees to promote venous return. The head holder support must be anchored strictly to the back portion of
+the operating table (Figure 53.8A) rather than portions under the thighs or legs. This allows the clinician to
+rapidly lower the head and perform closed chest compressions in an emergency without detaching the
+head holder. 
+Hemodynamics: In healthy adults, the sitting position triggers significant increases in systemic vascular
+resistance (SVR) and a 15% reduction in stroke volume and cardiac index, while MAP remains relatively
+steady. Patients unable to tolerate sudden increases in SVR should be transitioned to alternative positions.
+Arterial pressure transducers must be referenced strictly to the level of the external auditory canal to
+accurately reflect perfusion at the surgical field; arm-cuff measurements require a manual hydrostatic
+height correction. CPP must be maintained at a minimum of 60 mm Hg in healthy adults, and this target
+must be raised for elderly, hypertensive, or vascular disease patients. 
+Neurologic Complications: Rare instances of unexplained postoperative quadriplegia have been linked to
+severe neck flexion stretching or compressing the cervical spinal cord against osteophytes, rendering
+severe cervical spinal stenosis a relative contraindication. Evoked potential monitoring should be deployed
+during positioning for high-risk patients.
+VII. Venous Air Embolism (VAE) & Paradoxical Air Embolism (PAE)
+Incidence and Sources
+The incidence of VAE is highly dependent on surgical position and monitoring modality. During posterior fossa
+procedures  in  the  sitting  position,  VAE  is  detected  via  precordial  Doppler  in  40%  of  patients  and  via
+transesophageal echocardiography (TEE) in up to 76%. Nonsitting posterior fossa procedures exhibit a lower
+incidence (~12% via Doppler). Sitting cervical laminectomies carry a 25% incidence via TEE. VAE can occur
+in supratentorial cases, particularly during resection of parasagittal or falcine meningiomas encroaching on
+the  posterior  half  of  the  superior  sagittal  sinus,  craniofacial  reconstructions,  craniosynostosis  repairs  in
+children,  or  via  open  pin  sites.  Major  venous  sinuses  (transverse,  sigmoid,  and  superior  sagittal)  are
+noncollapsible when violated due to rigid dural attachments. Emissary veins, the skull diploic space, and
+• 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 10 of 27
+
+cervical epidural veins also serve as conduits. Spontaneous ventilation drastically increases the risk of air
+entrainment due to intermittent negative intrathoracic pressure spikes.
+Monitoring and Detection Sensitivity
+The standard institutional monitoring practice couples a precordial Doppler with continuous expired  CO2
+analysis. Precordial Doppler placement must be in a left or right parasternal location between the second/third
+or third/fourth intercostal spaces. TEE is the most sensitive monitor (Figure 53.11) and can uniquely identify
+right-to-left  interatrial  air  shunting,  though  its  safety  during  prolonged  use  with  extreme  neck  flexion  is
+unverified. Expired nitrogen analysis is theoretically attractive but lacks the sensitivity required to detect sub-
+catastrophic VAE events. Physiologically, a significant VAE event triggers an immediate, sharp drop in ET-CO2
+and a sudden rise in pulmonary artery pressure (PAP) due to mechanical vascular obstruction (air lock) and
+reactive pulmonary vasoconstriction, followed by systemic hypotension and ECG changes.
+BOX 53.6: MANAGEMENT OF AN ACUTE AIR EMBOLIC EVENT
+Prevent Further Air Entry:
+Immediately notify the surgeon to flood or pack the surgical field with fluid/wax.
+Apply manual bilateral jugular vein compression (increases cerebral venous pressure to stop air
+entrainment; superior to PEEP or Valsalva, which increase PAE risk).
+Lower the patient's head if mechanical attachments allow.
+Treat the Intravascular Air:
+Aspirate air directly from the right heart air retrieval catheter.
+Promptly discontinue Nitrous Oxide (N2O) to prevent rapid diffusion and expansion of the bubbles.
+Administer 100% Oxygen (FiO2 1.0).
+Support the circulation with intravenous pressors and inotropes.
+Initiate immediate closed chest compressions if cardiovascular collapse ensues.
+Right Heart Air Retrieval Catheter Placement
+All patients undergoing posterior fossa procedures in the sitting position require a right heart catheter. For
+optimal air aspiration, a multiorificed catheter tip must be positioned 2 cm below the superior vena caval-atrial
+(SVC-atrial) junction, whereas a single-orificed catheter tip must be positioned 3 cm above the SVC-atrial
+junction.  Placement  can  be  verified  via  radiography,  TEE,  or  intravascular  electrocardiography.  The
+intravascular ECG technique utilizes the catheter as an exploring electrode by filling it with an electrolyte
+solution (saline or bicarbonate) and attaching an ECG lead wire (e.g., the leg lead in lead II configuration) to
+the hub. As the tip approaches the middle of the right atrium, the electrode detects a characteristic, symmetric
+biphasic P wave  (Figure 53.13) reflecting the depolarization vector. To eliminate microshock hazards, a
+battery-operated ECG unit is preferred, and all unnecessary electrical gear must be temporarily detached from
+the patient.
+1. 
+◦ 
+◦ 
+◦ 
+2. 
+◦ 
+◦ 
+◦ 
+◦ 
+◦ 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 11 of 27
+
+Paradoxical Air Embolism (PAE)
+PAE occurs when entrained venous air traverses a Patent Foramen Ovale (PFO)—present in roughly 25% of
+the adult population—into the left-sided systemic circulation, introducing a high risk for ischemic stroke and
+acute coronary infarction. PAE typically occurs during major VAE events where significant right-sided air
+accumulation elevates the right atrial pressure (RAP) above the left atrial pressure (LAP). PEEP is strictly
+contraindicated because it increases the passive RAP-to-wedge pressure gradient, increasing the risk of
+right-to-left shunting. The Valsalva maneuver is also contraindicated as its release transiently reverses the
+interatrial gradient. Generous pre-positioning fluid volume administration helps maintain LAP higher than RAP,
+reducing the shunting window, though PAE can still occur due to transient gradient reversals during normal
+cardiac cycles.
+Air can also cross the pulmonary vascular bed into the systemic circulation (transpulmonary passage), a
+phenomenon accelerated by large entrained volumes or pulmonary vasodilators like volatile anesthetics. N2O
+must be eliminated after any VAE event due to this systemic shunting risk.
+VIII. Fluid Management & Glycemic Control
+Intravenous Fluid Core Principles
+Maintain  absolute  normovolemia: Required  to  preserve  a  stable  baseline  MAP  and  support  CPP.
+Chronic  negative  fluid  balances,  caused  by  combining  fluid  restriction  with  osmotic  diuretics,  worsen
+ischemic outcomes and are contraindicated.
+Avoid any reduction in serum osmolarity:  Hypo-osmolar fluids drive free water into both normal and
+abnormal brain tissue, exacerbating cerebral edema.
+Normal Saline (0.9% NaCl):  Provides an osmolarity of 308 mOsm/L, making it slightly hyperosmolar relative
+to normal plasma (295 mOsm/L). It prevents free-water edema but carries the disadvantage that large-volume
+administration causes hyperchloremic metabolic acidosis due to elevated plasma chloride. 
+Lactated Ringer's (LR):  Provides an osmolarity of 273 mOsm/L, making it technically hypo-osmolar. While
+massive volumes can induce cerebral edema in animal models, it serves as a reasonable compromise for
+moderate fluid shifts. The authors' standard practice for large resuscitations alternates LR and Normal Saline
+liter-for-liter. 
+Plasma-Lyte: A physiologically buffered crystalloid solution (pH 7.4) with an osmolality of 294 mOsmol/kg,
+matching plasma closely. Large multicenter trials (PLUS trial) failed to demonstrate any outcome benefit over
+normal saline in critically ill patients.
+Colloid Solutions
+Colloid administration should be balanced to prevent severe drops in colloid oncotic pressure (COP) during
+large resuscitations, which can exacerbate edema across a damaged blood-brain barrier. Albumin (4%) used
+in the SAFE trial subanalysis was associated with increased mortality in severe TBI patients; however, that
+specific solution was hypo-osmolar (274 mOsm/L), which likely worsened edema. Albumin has demonstrated
+potential benefits in acute SAH patients. Hydroxyethyl starch (HES)  solutions must be used with extreme
+caution because they directly interfere with platelet function and the factor VIII complex, proportional to their
+1.`
+    },
+    {
+      title: `2.`,
+      content: `Anesthesia Board Review: Chapter 53 Summary Study Guide Page 12 of 27
+
+molecular weight and substitution ratio. Severe bleeding complications have occurred when recommended
+dosage limits were exceeded or accumulated over successive days.  Dextrans are avoided entirely due to
+profound platelet inhibition.
+Glycemic Management Targets
+While severe hyperglycemia must be avoided to reduce infection rates, tight glycemic control is dangerous in
+patients with acute neurological injuries (TBI, SAH). Severe brain injury induces a state of *hyperglycolysis*,
+causing  the  injured  brain  to  require  higher  circulating  glucose  levels  to  avoid  metabolic  distress.  The
+intraoperative intervention threshold is 250 mg/dL, with an objective to reduce glucose levels to less than 200
+mg/dL. Standard guidelines recommend targeting a stable range between 140 and 180 mg/dL (matching the
+AHA stroke and NICE-SUGAR protocols). Blood glucose must not be allowed to fall below 100 mg/dL, and
+robust processes must be in place to prevent hypoglycemia.
+IX. Emergence from Anesthesia
+A smooth emergence, completely free of coughing, straining, and acute arterial hypertension, is a primary
+goal  in  neuroanesthesia.  Hypertension in  the  setting  of  defective  autoregulation  triggers  vascular
+engorgement  that  increases  ICP  and  risks  postoperative  intracranial  hemorrhage  or  accelerated  edema
+formation.  Coughing  or  straining transmits  sudden,  massive  increases  in  intrathoracic  pressure  to  the
+cerebral venous and arterial beds, spiking ICP. This can cause catastrophic breakdown of surgical closures,
+such  as  the  arachnoid  membrane  layer  in  transsphenoidal  pituitary  surgery  (introducing  a  high  risk  for
+persistent postop CSF leak and subsequent meningitis), or force air intracranially through frontal skull base
+defects to cause an acute tension pneumocephalus.
+To prevent emergence hypertension, clinicians routinely utilize lidocaine and vasoactive agents like labetalol,
+esmolol, hydralazine, enalapril, diltiazem, nicardipine, or clevidipine . Administering  dexmedetomidine
+during  the  procedure  or  prior  to  its  conclusion  reduces  the  hypertensive  response  to  emergence  and
+minimizes postanesthesia care unit (PACU) narcotic requirements.
+To eliminate coughing and straining, high-dose narcotics should be maintained to capitalize on their potent
+antitussive properties and airway reflex depression, ensuring the patient remains cooperative and capable of
+spontaneous ventilation. Transitioning to  N2O as the final inhaled agent to be withdrawn facilitates a rapid,
+smooth emergence, supplemented as needed with low-dose propofol boluses or infusions. Crucial Nuance:
+Emergence must be timed to coincide explicitly with the completion of the head dressing rather than the final
+skin suture. Moving or rotating the head while applying tight dressings triggers intense coughing and straining
+if  the  depth  of  anesthesia  is  reduced  prematurely.  Administering  1.5  mg/kg  of  intravenous  lidocaine
+immediately before applying the dressing effectively suppresses airway reflexes. Deep extubation before the
+complete  recovery  of  consciousness  should  be  avoided  if  cranial  nerve  injury  or  delayed  awakening  is
+suspected, ensuring airway protective reflexes are fully intact.
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 13 of 27
+
+X. Procedure-Specific Anesthetic Management`
+    },
+    {
+      title: `1. Supratentorial Tumors`,
+      content: `Gliomas and meningiomas are the most common lesions. Tumors encroaching on the posterior half of the
+superior sagittal sinus carry a substantial risk of VAE, requiring full precautions and a right atrial retrieval
+catheter. Excision of craniopharyngiomas or pituitary tumors with suprasellar extension involves dissecting
+around  the  hypothalamus,  which  can  trigger  severe  sympathetic  surges  (hypertension)  intraoperatively.
+Hypothalamic damage can result in delayed water balance disturbances (onset 12 to 48 hours postop),
+specifically  Diabetes  Insipidus  (DI) or,  less  commonly,  cerebral  salt-wasting  syndrome.  Disturbed
+temperature homeostasis can also manifest postoperatively.
+Bilateral  subfrontal  retraction  (common  for  olfactory  groove  meningiomas  or  suprasellar  tumors)  alters
+consciousness, frequently presenting as a delayed return of consciousness, severe disinhibition, or both, in
+the immediate postoperative period. The clinician should modify the technique to utilize a less liberal dose of
+long-acting intravenous drugs (fentanyl or propofol infusions) as low residual levels are poorly tolerated, and
+expectantly delay extubation until an absolute return of consciousness and command-following is confirmed.
+Preoperative steroids (dexamethasone 10 mg q6h for 48 hours) are ideal. Arterial lines must be placed and
+functioning prior to pin placement.`
+    },
+    {
+      title: `2. Intracranial Aneurysms & Subarachnoid Hemorrhage (SAH)`,
+      content: `Contemporary guidelines advocate for early surgical clipping or endovascular coiling of ruptured aneurysms to
+reduce the risk of fatal rebleeding. If early intervention is impossible, surgery is delayed for 10 to 14 days to
+clear the window of maximal vasospasm risk (days 4 to 10 post-SAH). Early surgery presents a highly
+edematous brain, frequently complicated by hydrocephalus (9% to 19% of SAH victims ultimately require
+permanent CSF shunting), placing a premium on aggressive brain relaxation techniques to minimize retractor
+pressures.
+Vasospasm Management: Symptomatic vasospasm (manifesting as a change in sensorium or new deficit) is
+diagnosed via TCD or angiography. Historical "Triple H" therapy has shifted toward fluid resuscitation strictly to
+euvolemia (avoiding hypervolemia), induced hypertension, balloon angioplasty, or intra-arterial vasodilators
+(nicardipine, verapamil, nimodipine, milrinone, or papaverine ). Oral  nimodipine remains the standard
+maintenance therapy to decrease ischemic morbidity. Systemic hypotension must be avoided; intraoperative
+CPP must be supported near normal waking levels to protect marginally perfused penumbras, even in Hunt-
+Hess Grade I patients who may harbor subclinical ischemia. Systemic pressors of choice are phenylephrine
+or dopamine, targeting a MAP increase of 20 to 30 mm Hg above baseline. Cardiocutaneous dobutamine
+infusions  can  augment  CBF  in  ischemic  zones  without  increasing  MAP.  Target  hemoglobin  should  be
+maintained at a minimum of 9 g/dL in patients with or at risk for active vasospasm.
+SAH-Associated Myocardial Stunning:  Catecholamine-mediated myocardial "stunning" occurs frequently
+after  SAH,  correlating  with  the  severity  of  the  neurological  injury.  It  presents  with  troponin  elevations,
+echocardiographic wall motion abnormalities, and classic ECG changes including canyon T waves  (Figure
+53.14),  ST-segment  depressions,  QT  prolongation  (>550  msec),  and  U  waves.  Prolonged  QT  intervals
+increase  the  risk  for  malignant  ventricular  dysrhythmias,  specifically  torsades  de  pointes.  If  ventricular
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 14 of 27
+
+function is adequate, these neurogenic ECG changes do not indicate evolving primary cardiac disease, and
+no specific cardiac modifications are required other than antiarrhythmic readiness.
+Anesthetic Nuances for Aneurysm Surgery:
+Hypertension Avoidance: Absolute avoidance of hypertension is mandatory during induction and pinning to
+prevent aneurysm rerupture. A rebleed at induction is frequently fatal due to hematoma penetration into the
+parenchyma and extreme ICP spikes within a non-compliant space. 
+Rupture  Readiness: If  intraoperative  rupture  occurs,  the  clinician  must  reduce  MAP  immediately  and
+accurately to 40 to 50 mm Hg to facilitate control, maintaining normovolemia to support resuscitation. 
+Induced Hypertension: Phenylephrine is administered during periods of temporary vessel clipping to augment
+collateral flow, or post-clipping to elevate systolic blood pressure to 150 mm Hg while the surgeon punctures
+the dome to verify clip occlusion. 
+Lumbar CSF Drainage: Lumbar drains facilitate surgical exposure. Rapid, excessive initial drainage must be
+avoided because a sudden drop in ICP increases the transmural pressure gradient across the aneurysm
+dome, which can trigger a rebleed. Drains must remain closed until the dura is being opened, allowed to drain
+freely  during  the  retractor  phase,  and  discontinued  promptly  upon  retractor  removal  to  permit  CSF
+reaccumulation and minimize pneumocephalus. 
+Temporary Vessel Clipping: Proximal vessel occlusion to facilitate dissection is well tolerated for less than 14
+minutes in normothermic, normotensive adults. Ischemic injury risk increases with longer durations, reaching
+100% for occlusions exceeding 31 minutes. An informal "7-minute rule" is often applied to individual occlusion
+periods. Skin-surface frontal-mastoid EEG monitoring is sufficient to detect major ischemic events during
+temporary  occlusion;  if  slowing  occurs,  MAP  must  be  raised.  Sustained  temporary  clipping  may  justify
+administering barbiturates to induce electroencephalographic burst suppression.
+Table 53.2: World Federation of Neurosurgeons (WFNS) SAH Scale
+WFNS Grade GCS Score Motor Deficit
+I 15 Absent
+II 14 – 13 Absent
+III 14 – 13 Present
+IV 12 – 7 Present or Absent
+V 6 – 3 Present or Absent
+Table 53.3: Hunt-Hess Classification of Neurologic Status After SAH
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 15 of 27
+
+Category Anatomical & Clinical Criteria
+Grade I Asymptomatic, or minimal headache and slight nuchal rigidity.
+Grade II Moderate to severe headache, nuchal rigidity, no focal neurological deficit other than cranial nerve
+palsy.
+Grade III Drowsiness, confusion, or mild focal deficit.
+Grade IV Stupor, moderate to severe hemiparesis, possibly early decerebrate rigidity and vegetative
+disturbances.
+Grade V Deep coma, decerebrate rigidity, moribund appearance.
+*Note: Serious systemic disease (e.g., severe hypertension, diabetes, advanced arteriosclerosis, chronic pulmonary disease, or
+severe angiographic vasospasm) results in placing the patient into the next less-favorable category.`
+    },
+    {
+      title: `3. Arteriovenous Malformations (AVMs) & Perfusion Breakthrough`,
+      content: `A  major  complication  specific  to  large,  high-flow  AVMs  is  Normal  Perfusion  Pressure  Breakthrough
+(cerebral dysautoregulation). It presents as sudden, severe intraoperative engorgement and swelling of the
+brain, causing a relentless, cauliflower-like protrusion of tissue through the craniectomy site, or presenting
+postoperatively  as  unexplained  swelling  and  hemorrhage.  High-flow,  low-resistance  shunt  pathways
+chronically divert blood, leaving adjacent normal vascular territories chronically hypoperfused and maximally
+dilated. Upon acute obliteration of the AVM, these pressure-passive vessels are suddenly exposed to a high-
+pressure head, driving massive hyperemia and edema. Strict blood pressure control is vital. If refractory
+swelling  occurs,  reducing  MAP  can  help  limit  pressure-passive  flow,  combined  with  aggressive  rescue
+therapy: hypocapnia, hypothermia, and barbiturates to reduce the volume of the remaining normal brain
+tissue. Postoperative hypertension must be prevented with extreme care.`
+    },
+    {
+      title: `4. Traumatic Brain Injury (TBI)`,
+      content: `Airway  management  in  a  combative,  uncooperative,  full-stomach  TBI  patient  requires  balancing  multiple
+conflicting factors. Securing the airway, ensuring gas exchange, and stabilizing the circulation take absolute
+priority over isolated concerns regarding transient spikes in ICP. Approximately 2% of blunt trauma victims and
+8% to 10% of TBI patients with a GCS score less than 8 harbor a cervical spine fracture. Rapid sequence
+induction  with  manual  in-line  stabilization  (the  assistant  holding  the  patient's  occiput  firmly  against  the
+backboard to prevent atlanto-occipital extension while cricoid pressure is applied) is the standard method.
+Direct laryngoscopy with severe extension must be avoided. The posterior half of the cervical collar should be
+left in place to act as a supportive strut. Succinylcholine can be safely utilized if required to secure an urgent
+airway  as  its  ICP  effects  are  minor  and  unmeasured  in  severe  head  injuries.  Rocuronium  paired  with
+sugammadex reversal is an effective alternative.
+Anesthetics  that  function  as  cerebral  vasoconstrictors  (propofol,  thiopental,  narcotics)  are  preferred  over
+vasodilating volatile gases when ICP is out of control or unknown. Autoregulation is frequently defective,
+rendering the brain vulnerable to secondary ischemic insults from modest systemic hypotension. MAP must
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 16 of 27
+
+be supported to maintain a target adult CPP range between 60 and 70 mm Hg within the first 72 hours (age-
+adjusted pediatric targets range from 40 mm Hg in neonates to 50 mm Hg in adolescents).
+The  Lund  Concept argues  that  arterial  pressure  drives  hydrostatic  edema  accumulation,  utilizing  fluid
+restriction, loop diuretics, albumin to maintain COP, and metoprolol/clonidine to target a lower CPP of 50 to 55
+mm Hg (modified to 60 to 70 mm Hg in modern iterations). This approach remains controversial and has not
+been  adopted  in  North  America.  The  alternative  Rosner  Concept utilizes  pharmacologically  induced
+hypertension to trigger autoregulatory vasoconstriction and reduce ICP, but it has few modern advocates.
+Prophylactic hyperventilation ( PaCO2 ≤ 25 mm Hg) is strictly avoided within the first 24 hours as CBF is
+already critically low. Maintain hemoglobin levels above 9 g/dL. Severe TBI can trigger systemic consumptive
+coagulopathy due to tissue thromboplastin release, requiring immediate factor replacement.
+Advanced Neuromonitoring:
+Jugular Venous Oxygen Saturation (SjvO2): Measures global oxygen extraction. Normal range is 60% to 75%;
+values below 50% for 5 minutes indicate jugular desaturation (perfusion inadequacy). High values (>75%)
+identify  hyperemic  states  where  aggressive  ICP  therapies  (hyperventilation,  barbiturates)  are  effective.
+Unilateral catheter placement is limited by an average side-to-side saturation variation of 5.3 ± 5%, which can
+reach up to 15%. 
+Brain Tissue  PO2 ( PbtO2): Evaluates highly focal tissue oxygenation. Normal range is ≥ 20 to 25 mm Hg;
+values ≤ 10 to 15 mm Hg convey a severe risk of hypoxic injury. It provides highly focal data around the tip,
+which can lead to false negatives if placed away from salvageable perilesional zones, or fail as a guide if
+positioned inside irredeemably dead tissue. 
+Non-Neurosurgical Procedures: If a brain-injured patient requires an unrelated emergency surgery (e.g., 6-
+hour spinal fixation prone) under general anesthesia within 48 hours of injury, an ICP monitor must be
+considered if there was any loss of consciousness or the GCS is < 15 paired with an abnormal CT scan.
+Frontal and temporal contusions carry a high risk for delayed herniation due to lesion expansion near the
+uncus, which can cause herniation at relatively low global ICPs (~20 mm Hg).`
+    },
+    {
+      title: `5. Posterior Fossa Procedures & Cranial Nerve Stimulation`,
+      content: `Surgical manipulation or retraction near the floor of the fourth ventricle (lower pons and upper medulla) or the
+extra-axial  portions  of  the  cranial  nerves  triggers  profound  cardiovascular  responses.  Irritation  near  the
+cerebellopontine angle (acoustic neuroma resections, microvascular decompressions of CN V, VII, or IX) can
+cause sudden bradycardia and hypotension, tachycardia and hypertension, bradycardia and hypertension, or
+malignant ventricular dysrhythmias. The clinician must continuously monitor beat-by-beat arterial waveforms
+and report any sudden baseline shifts to the surgeon immediately to prevent permanent damage to adjacent
+nuclei and brainstem respiratory centers. Antiarrhythmics should be withheld if possible as they mask these
+vital warning signs. 
+Percutaneous Balloon Compression of the Trigeminal Ganglion: Performed for tic douloureux by inflating
+a Fogarty-type balloon within Meckel's cave. It is intensely stimulating, requiring general anesthesia. Upon
+successful  compression,  a  profound,  transient  bradycardia  occurs,  serving  as  surgical  confirmation  of
+adequate balloon placement. 
+Postoperative Airway Concerns: Dissection near the fourth ventricle carries a risk of injury to cranial nerve
+nuclei IX, X, and XII, or local brainstem swelling. This can result in an acute loss of upper airway control, loss
+of airway patency, or loss of primary respiratory drive. Decisions regarding extubation must be made jointly
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 17 of 27
+
+with  the  surgeon,  and  patients  must  be  transitioned  to  an  ICU  environment  for  close  monitoring.
+Electrophysiologic  monitoring  (MEPs,  EMG)  requires  completely  omitting  or  maintaining  an  incomplete,
+constant state of neuromuscular blockade.`
+    },
+    {
+      title: `6. Transsphenoidal Pituitary Surgery`,
+      content: `Performed  via  the  nasal  cavity  to  resect  sellar  tumors.  Preoperative  evaluation  must  establish  visual
+boundaries and complete endocrine status. As a pituitary tumor expands, normal hormonal function is lost in a
+specific sequence: first, gonadotropins → second, growth hormone → third, ACTH → fourth, thyroid-
+stimulating hormone . ACTH deficiency induces a severe hypoadrenal state; uncorrected hypocortisolism
+carries a high risk for an Addisonian crisis under surgical stress, requiring preoperative correction and stress-
+dose steroid coverage. Hypothyroidism must be corrected as it diminishes tolerance to anesthetic myocardial
+depression.  Cushing's  Disease (ACTH-secreting)  presents  with  severe  hypertension,  diabetes,  central
+obesity, and obstructive sleep apnea (OSA). Advanced Acromegaly (GH-secreting) presents with a greatly
+enlarged tongue and narrowed glottis, predicting a difficult airway, along with thick dermis, hypertension, OSA,
+and severe cardiomyopathy. 
+The cavernous sinuses, housing the internal carotid arteries, form the lateral borders of the sella. Accidental
+entry can trigger catastrophic, rapid blood loss, requiring a functioning intra-arterial line. Anesthetic setup
+utilizes an oral RAE endotracheal tube secured to the corner of the mouth opposite the surgeon's dominant
+hand, a pharyngeal pack to prevent gastric blood accumulation, and nerve stimulator placement on a lower
+extremity.  Direct  nasal  mucosal  infiltration  with  local  anesthetic  containing  epinephrine  can  trigger
+dysrhythmias. Surgical preference dictates CO2 management: hypocapnia is requested to minimize arachnoid
+bulging into the sella, whereas normocapnia delivers a large tumor with suprasellar extension down into the
+sella for resection. Smooth emergence is mandatory to prevent CSF leaks and subsequent meningitis. 
+Postoperative  Diabetes  Insipidus  (DI): DI  is  caused  by  damage  to  the  supraoptic-hypophyseal  tract,
+presenting as severe polyuria paired with a rising serum osmolality (>295 mOsm/L) and inappropriately dilute,
+hypo-osmolar urine with a specific gravity ≤ 1.002. DI rarely manifests intraoperatively, typically developing 12
+to 48 hours postoperatively. 
+Fluid Management Protocol for DI:  Administer hourly maintenance fluid volume plus an additional volume
+equivalent to two-thirds of the previous hour's total urine output (Alternative: previous hour's output - 50 mL +
+maintenance). Fluids chosen are hypo-osmolar (0.45% Normal Saline or 5% Dextrose in water). If the hourly
+fluid requirement exceeds 350 to 400 mL, desmopressin acetate (DDAVP) must be administered.`
+    },
+    {
+      title: `7. Awake Craniotomy & Seizure Surgery`,
+      content: `Indicated  for  resecting  tumor  or  epileptic  foci  situated  near  critical  speech,  motor,  or  memory  cortex.
+Preoperative  mapping  includes  the  Wada  Test (injecting  amobarbital  sodium  into  the  carotid  artery  to
+selectively anesthetize a hemisphere and localize speech or verify bilateral memory representation). Subdural
+strip/grid or deep deep-brain foramen ovale electrodes are placed to map foci. Foramen ovale electrodes
+enter 2 cm lateral to the mouth, passing under the zygomatic process to the skull base under Monitored
+Anesthesia Care (MAC) with propofol boluses during painful periosteal stimulation. Anticonvulsants are halved
+preoperatively; benzodiazepine premedicants are strictly avoided as they suppress epileptic foci and prevent
+EEG localization. 
+The essential cornerstone of an awake craniotomy is an immaculate regional local anesthetic scalp block
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 18 of 27
+
+(targeting  the  supratrochlear,  supraorbital,  zygomaticotemporal,  auriculotemporal,  greater  occipital,  lesser
+occipital, and great auricular nerves; Figure 53.19) combined with local infiltration of skull pin sites. Sedation
+cannot compensate for a patchy regional block. For sedation during the non-testing phases (pinning and
+craniotomy),  a  propofol  infusion  is  combined  with  remifentanil  or  dexmedetomidine.  Propofol  must  be
+discontinued  at  least  15  minutes  before  planned  EEG  recording because  it  leaves  a  persistent
+electrophysiologic  footprint  of  high-frequency,  high-amplitude  beta  activity  that  completely  obscures  focal
+spike tracks. Dexmedetomidine infusions must be restricted to modest rates (0.1 to 0.2 mcg/kg/h) during
+neurocognitive testing to avoid delayed responsiveness or lethargy during speech mapping. 
+Focus Activation and Seizure Treatment: If baseline tracking fails to show focus activity, chemical provocation
+is achieved via methohexital (0.3 mg/kg) or etomidate (0.05-0.1 mg/kg in awake patients; 0.2-0.3 mg/kg under
+general anesthesia). Alfentanil (30-50 mcg/kg), remifentanil (2.5 mcg/kg bolus), or hyperventilation are also
+effective. If electrical cortical stimulation triggers a grand mal convulsion, it is managed by terminating the
+stimulus and irrigating the cortex with iced saline. If it persists, administer propofol in small increments (0.5 to
+1.0 mg/kg), withholding it briefly initially to see if the seizure self-terminates to avoid suppressing subsequent
+EEG tracking.`
+    },
+    {
+      title: `8. Stereotactic & Neuroendoscopic Procedures`,
+      content: `Stereotactic  frame  placement  for  deep  brain  stimulation  (DBS)  electrodes  treats  movement  disorders,
+targeting the subthalamic nucleus, internal globus pallidus, or ventral intermediate thalamic nucleus. Frames
+can  restrict  airway  access,  impede  mask  ventilation,  and  prevent  laryngoscopy  or  neck  extension,
+occasionally requiring an awake fiberoptic intubation. The clinician must know how to rapidly remove the
+frame in an emergency. Sedative agents must not suppress the electrophysiologic footprint or clinical tremor
+response.  Benzodiazepines  are  contraindicated.  Propofol  can  trigger  severe  paradoxical  dyskinesias  or
+suppress  the  tremor  and  must  be  withheld  well  in  advance  of  microelectrode  recording;  low-dose
+dexmedetomidine or remifentanil are appropriate. Intracerebral hematoma is a severe complication; strict
+blood pressure control is vital. Spontaneous ventilation introduces a minor risk for VAE. 
+Neuroendoscopic intraventricular procedures (colloid cyst resections, third ventriculostomy) require warmed
+irrigation fluid. Complete or partial obstruction of the fluid drainage limb causes a rapid increase in ICP,
+triggering a classic  Cushing Response  (severe hypertension paired with bradycardia). The clinician must
+notify the surgeon immediately upon detecting sudden hemodynamic shifts.`
+    },
+    {
+      title: `9. Neurointerventional Radiology Procedures`,
+      content: `General Anesthesia (GA) provides immobility, airway protection, and control over  PaCO2, but can cause
+hemodynamic lability and mask neurological changes. For emergent mechanical thrombectomy in acute
+stroke (indicated up to 24 hours from symptom onset), randomized controlled trials and recent meta-analyses
+demonstrate no clinical outcome advantage of MAC over GA. Groin puncture access times are similar, and
+any delay from intubation is offset by absolute patient immobility and superior operative conditions. Both
+techniques lower blood pressure, which risks critical infarct extension within the ischemic penumbra. The
+clinician must aggressively treat hypotension, maintaining perfusion near awake baselines. Blood pressure
+targets are maintained below 180/105 mm Hg or within a systolic range of 140–180 mm Hg. Normocapnia
+must be preserved, and profound hyperoxia avoided. 
+Endovascular coiling or flow-diverting stent placement across an aneurysm neck carries a risk of acute
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 19 of 27
+
+intraprocedural rupture. If rupture occurs, the interventionalist will request immediate blood pressure reduction
+while coiling is completed, and the clinician must immediately administer  protamine to reverse heparin
+anticoagulation. Conversely, if an embolic device migrates and induces acute ischemia, fluid loading and
+pressor administration are required to augment collateral flow. Stent deployment requires 5 to 7 days of
+preoperative dual antiplatelet therapy (DAPT); point-of-care assays (VerifyNow) evaluate drug responsiveness.
+Acute intraprocedural stent thrombosis is treated with an immediate intravenous glycoprotein IIb/IIIa inhibitor.
+Carotid  Artery  Stenting  (CAS)  and  Transcarotid  Artery  Revascularization  (TCAR)  involve  direct  stent
+deployment across carotid plaques. Plaque compression triggers a severe baroreceptor response, causing
+profound bradycardia and hypotension; administering glycopyrrolate prior to balloon deployment effectively
+attenuates this bradycardic response.`
+    },
+    {
+      title: `10. Cerebrospinal Fluid Shunting Procedures`,
+      content: `Ventriculoperitoneal (VP) shunts involve introducing a catheter via a skull burr hole into the lateral ventricle,
+connected to a subcutaneous valve and a distal limb tunneled down into the peritoneal cavity. Tunneling the
+catheter generates an intense painful stimulus and a reactive spike in blood pressure, requiring preemptive
+anesthetic deepening. Conversely, when the surgeon first cannulates the ventricle and relieves high brainstem
+compression, blood pressure can drop abruptly, occasionally requiring brief vasopressor support. A distended
+stomach can lead to an accidental surgical gastrostomy during peritoneal entry; a gastric tube must be placed
+to decompress the stomach. VP shunt patients are routinely nursed completely flat postoperatively to prevent
+rapid  ventricular  collapse,  which  can  tear  bridging  veins  and  cause  a  subdural  hematoma.  In  pediatric
+patients, open fontanelles afford a compliance safety margin and allow manual digital trend monitoring of ICP.
+Inhaled inductions with sevoflurane are well tolerated in pediatric shunt candidates, but must be avoided if the
+child is stuporous, in which case a propofol-relaxant sequence is preferred. Fentanyl should be supplemented
+for children older than 6 months to ensure a smooth emergence.
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 20 of 27`
+    },
+    {
+      title: `ANESTHESIA BOARD REVIEW EXAMINATION`,
+      content: `Standard Multiple-Choice Practice Questions & Comprehensive Rationales
+Directions: Each of the following board-style multiple-choice questions is derived exclusively from the provided
+textbook chapter. Select the single best answer option for each question.`
+    },
+    {
+      title: `Section 22`,
+      content: `1. A 45-year-old male is undergoing a posterior fossa craniotomy in the sitting position. The
+anesthesia provider utilizes an arm blood pressure cuff for monitoring. To ensure accurate
+measurement of the cerebral perfusion pressure at the surgical field, how should the blood pressure
+values be adjusted?
+A. No adjustment is required, as MAP is uniform throughout the arterial tree in a seated patient.
+B. A manual hydrostatic correction must be applied by referencing the pressure to the level of the external
+auditory meatus.
+C. The MAP target must be reduced by 15% to compensate for the reflexive increase in systemic vascular
+resistance.
+D. The pressure must be corrected by referencing the transducer to the level of the right atrium.
+Correct Answer: B.
+Rationale: The text explicitly states that when neurosurgical procedures are performed in the sitting position, blood
+pressure should be corrected to the level of the external auditory meatus to provide a meaningful index of perfusion
+pressure at the surgical field. If a manual blood pressure cuff on the arm is used, a correction to allow for the
+hydrostatic difference between the arm and the operative field should be applied. Referencing to the right atrium
+(Option D) is incorrect as it fails to account for the vertical hydrostatic gradient between the heart and the elevated
+brain. SVR increases and cardiac index drops by 15% in this position, but lowering the MAP target (Option C) would
+dangerously worsen cerebral perfusion. 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 21 of 27`
+    },
+    {
+      title: `Section 23`,
+      content: `2. A patient with severe traumatic brain injury has been hyperventilated in the intensive care unit for
+24 hours, maintaining a stable PaCO2 of 25 mm Hg. The neurointensivist requests that the patient's 
+PaCO2 be normalized back to 40 mm Hg. What is the most critical physiological consideration during
+this adjustment?
+A. The hyperventilation must be discontinued abruptly to prevent pulmonary barotrauma.
+B. The normalization of  PaCO2 must be accomplished slowly because a rapid increase will cause severe
+cerebral vasodilation equivalent to an acute hypercapnic surge.
+C. No special precaution is needed because the CSF pH completely normalizes within 2 hours of initiating
+hyperventilation.
+D. Carbonic anhydrase inhibitors must be administered concurrently to prevent systemic metabolic alkalosis.
+Correct Answer: B.
+Rationale: According to the text, during a sustained period of hyperventilation, the concentration of bicarbonate in
+the CSF and extracellular fluid space is actively reduced via carbonic anhydrase alterations, returning the pH to
+normal over 8 to 12 hours. If a patient has been chronically hyperventilated for a sustained period, restoration of 
+PaCO2 to normal values must be accomplished slowly. A sudden increase from 25 to 40 mm Hg will have the exact
+same physiologic effect that a rapid change from 40 to 55 mm Hg would have in a previously normocapnic patient—
+causing massive, dangerous cerebral vasodilation and severe spikes in ICP. Normalization takes 8–12 hours, not 2
+hours (Option C). Discontinuing hyperventilation abruptly risks neurological injury from vasodilation, not barotrauma
+(Option A).`
+    },
+    {
+      title: `Section 24`,
+      content: `3. Which of the following statements correctly delineates the mechanism by which combining a loop
+diuretic like furosemide with an osmotic diuretic enhances brain volume reduction?
+A. Furosemide directly blocks the movement of mannitol across the intact blood-brain barrier.
+B. Neurons and glia recover volume by accumulating chloride ions as idiogenic osmoles; loop diuretics inhibit
+the chloride channels required for this volume-restoring mechanism.
+C. Furosemide shifts systemic osmolarity above the absolute acceptable upper limit of 350 mOsm/L.
+D. The combination prevents hyperchloremic metabolic acidosis by increasing renal bicarbonate retention.
+Correct Answer: B.
+Rationale: The text explains that neurons and glia that shrink in response to increased environmental osmolarity
+recover their volume rapidly by accumulating idiogenic osmoles, one of which is chloride. Loop diuretics inhibit the
+specific chloride channels through which the ion must pass, thereby retarding the normal cell volume-restoring
+mechanism. The upper acceptable osmolarity limit noted in the text is approximately 320 mOsm/L, not 350 mOsm/L
+(Option C). Furosemide does not block mannitol clearance across the barrier (Option A), and the combination
+worsens electrolyte disturbances rather than preventing acidosis (Option D). 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 22 of 27`
+    },
+    {
+      title: `Section 25`,
+      content: `4. A 28-year-old female presents for urgent surgical clipping of an intracranial aneurysm 3 days
+following an acute subarachnoid hemorrhage. She is noted to be hyponatremic. Which of the
+following clinical findings or management paradigms correctly distinguishes her condition as
+cerebral salt-wasting syndrome rather than SIADH?
+A.  Cerebral  salt-wasting  syndrome  is  characterized  by  a  hypervolemic  fluid  profile  requiring  strict  fluid
+restriction.
+B.  Cerebral  salt-wasting  syndrome  is  characterized  by  intravascular  volume  contraction  and  high  urine
+sodium concentrations (>50 mmol/L), and must be treated with fluid and sodium replacement.
+C. SIADH exhibits a severely contracted intravascular volume contracted triad and low urine sodium output.
+D. Both conditions are treated intraoperatively by limiting fluid management to hypo-osmolar fluids until
+plasma glucose exceeds 250 mg/dL.
+Correct Answer: B.
+Rationale: The textbook states that hyponatremia after SAH is frequently the result of cerebral salt-wasting
+syndrome, which is characterized by the triad of hyponatremia, volume contraction, and high urine sodium
+concentrations (>50 mmol/L). Differentiating them is vital because SIADH is characterized by normovolemia or mild
+hypervolemia and treated with fluid restriction (Option A), whereas fluid restriction in cerebral salt-wasting syndrome
+causes dangerous volume contraction (Option C). Management of both involves administering isotonic or hypertonic
+fluids to a target of intravascular normovolemia and normonatremia. Free water or hypo-osmolar fluids (Option D) are
+strictly avoided as they exacerbate cerebral edema. 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 23 of 27`
+    },
+    {
+      title: `Section 26`,
+      content: `5. During a posterior fossa craniotomy on the floor of the fourth ventricle, the patient suddenly
+exhibits severe bradycardia and a profound, transient drop in blood pressure. What is the most
+appropriate immediate action by the anesthesia provider?
+A. Administer a large bolus of atropine and a continuous infusion of epinephrine to mask the response.
+B. Immediately notify the surgeon of the sudden hemodynamic change, as it indicates irritation of vital
+brainstem structures.
+C.  Hyperventilate  the  patient  to  a  PaCO2  of  less  than  20  mm  Hg  to  induce  immediate  localized
+vasoconstriction.
+D. Place the patient in a steep reverse Trendelenburg position to maximize venous outflow from the posterior
+fossa.
+Correct Answer: B.
+Rationale: The text states that irritation of the lower portion of the pons and upper medulla near the floor of the
+fourth ventricle can result in significant cardiovascular responses, including bradycardia, tachycardia, hypertension,
+hypotension, or ventricular dysrhythmias. Meticulous attention to directly transduced arterial pressure is necessary to
+provide the surgeon with an immediate warning of the risk of damage to adjacent cranial nerve nuclei and respiratory
+centers. Pharmacologic treatment of these dysrhythmias (Option A) may dangerously attenuate the very warning
+signs that must be sought. Hyperventilation below 20 mm Hg (Option C) risks localized ischemic injury. Changing
+surgical positioning mid-procedure (Option D) is inappropriate.`
+    },
+    {
+      title: `Section 27`,
+      content: `6. A 34-year-old male is undergoing an awake craniotomy for resection of an tumor near Broca's
+speech area. Electrocorticography is planned to map the tumor margins. Which of the following
+statements represents the correct pharmacological management regarding the sedation regimen?
+A. Propofol must be maintained at a high infusion rate throughout the entire mapping phase to facilitate focus
+tracking.
+B. Benzodiazepines are preferred for baseline sedation because they do not interfere with the microelectrode
+signatures.
+C. Propofol must be discontinued at least 15 minutes before planned EEG recording because it leaves a
+residual footprint of high-frequency, high-amplitude beta activity that can obscure abnormal tracking.
+D.  Dexmedetomidine  should  be  infused  at  high  rates  (>1.5  mcg/kg/h)  during  neurocognitive  testing  to
+optimize patient compliance.
+Correct Answer: C.
+Rationale: The text states that propofol should be discontinued at least 15 minutes before EEG recording because it
+leaves a residual footprint characterized by high-frequency, high-amplitude beta activity that can obscure the
+abnormal activity being sought. Benzodiazepines have the greatest potential to interfere with signatures and are best
+avoided entirely (Option B). Dexmedetomidine is highly useful, but using only modest infusion rates (0.1 to 0.2 mcg/
+kg/h) during neurocognitive testing appears advisable to prevent lethargy or delayed responsiveness (Option D). 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 24 of 27`
+    },
+    {
+      title: `Section 28`,
+      content: `7. A patient develops profound polyuria 24 hours following transsphenoidal resection of a pituitary
+macroadenoma. Laboratory evaluation demonstrates an elevated serum osmolality and a urine
+specific gravity of 1.002. Which of the following fluid replacement strategies is aligned with the
+textbook guidelines if the urine output exceeds 400 mL/hour?
+A. Administer boluses of hetastarch at a dose of 2 g/kg until the urine specific gravity exceeds 1.015.
+B. Restrict all fluid intake to 50 mL/hour to induce feedback-mediated antidiuretic hormone release.
+C. Administer hourly maintenance fluids plus an additional volume equivalent to two-thirds of the previous
+hour's urine output using half-normal saline or D5W, and administer desmopressin acetate.
+D. Alternate normal saline and lactated Ringer's liter-for-liter, avoiding insulin therapy unless glucose falls
+below 100 mg/dL.
+Correct Answer: C.
+Rationale: The clinical picture confirms post-operative Diabetes Insipidus (DI). The text mandates that when the
+diagnosis of DI is established, the appropriate fluid management regimen is hourly maintenance fluids plus two-thirds
+of the previous hour's urine output (or previous hour's output - 50 mL + maintenance). Because the patient loses
+hypo-osmolar, low-sodium fluid, half-normal saline and 5% dextrose in water are commonly used as replacement
+fluids. If the hourly requirement exceeds 350 to 400 mL, desmopressin acetate (DDAVP) is often administered.
+Starch solutions (Option A) are incorrect and carry renal hazards; fluid restriction (Option B) is contraindicated in true
+DI; normal saline alternates (Option D) are used for systemic large-volume blood loss shifts, not DI water loss. 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 25 of 27`
+    },
+    {
+      title: `Section 29`,
+      content: `8. Anesthesia is enlaisted for an emergent mechanical thrombectomy in an alert, cooperative patient
+presenting 6 hours after the onset of an acute ischemic stroke. Based on the human randomized
+controlled trials discussed in the text, what is the preferred anesthetic approach?
+A. Monitored Anesthesia Care (MAC) is routinely superior to general anesthesia because it reduces groin
+puncture time and eliminates infarct extension.
+B. General anesthesia is absolutely indicated because volatile agents have been proven to cause significant
+burst suppression that reverses regional tissue ischemia.
+C. There is insufficient evidence to routinely recommend one technique over another; the choice should be
+individualized, ensuring that if general anesthesia is selected, MAP is maintained tightly near awake levels.
+D. Nitrous oxide should be administered as the primary maintenance agent to ensure rapid emergence within
+5 minutes.
+Correct Answer: C.
+Rationale: The text notes that subsequent randomized controlled trials and a recent meta-analysis did not
+demonstrate an outcome benefit of MAC over GA in this patient population. While MAC can hasten vascular access
+time in retrospective series, recent prospective studies failed to demonstrate an advantage in time to
+revascularization because GA-induced intubation delays are offset by reduced patient mobility and improved
+operative conditions. Both techniques lower blood pressure, which risks critical infarct extension. Thus, there is
+insufficient evidence to routinely recommend one technique over another, and the choice should be based on clinical
+assessment, comfort level, and local practice, emphasizing the meticulous maintenance of cerebral perfusion near
+awake levels if GA is selected. Nitrous oxide (Option D) is often avoided due to air bubble expansion risks.`
+    },
+    {
+      title: `Section 30`,
+      content: `9. A neurosurgeon is performing a craniotomy for tumor resection on a patient with highly
+compromised intracranial compliance. As the scalp dressing is being wrapped at the very end of the
+procedure, the patient begins to cough violently against the endotracheal tube. What is the most
+immediate hazard associated with coughing at this specific clinical juncture?
+A. Sudden decreases in intrathoracic pressure causing air lock within the right ventricle.
+B. Transmission of elevated intrathoracic pressure to the cerebral venous and arterial beds, triggering acute
+spikes in ICP, edema formation, or intracranial bleeding.
+C. Irreversible disruption of the brachial plexus due to reflexive contraction of the shoulder girdle.
+D. Accidental displacement of the right heart catheter into the superior vena cava.
+Correct Answer: B.
+Rationale: The textbook details that coughing and straining must be avoided because sudden increases in
+intrathoracic pressure are transmitted directly to both cerebral veins and arteries, producing transient increases in
+both cerebral arterial and venous pressures. This leads to the exact same potential consequences: edema formation,
+bleeding, and elevation of ICP. This is a specific concern at the time of head dressing application (many a good
+anesthetic is spoiled here due to tube motion). Coughing increases intrathoracic pressure, not decreases it (Option
+A). Brachial plexus injury (Option C) and catheter migration (Option D) are not the immediate intracranial hazards
+described. 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 26 of 27`
+    },
+    {
+      title: `Section 31`,
+      content: `10. During a posterior fossa tumor resection in the sitting position, an acute Venous Air Embolism
+(VAE) is detected via precordial Doppler and a precipitous drop in ET-CO2. Following immediate
+notification to the surgeon, which of the following represents the most appropriate initial management
+sequence by the anesthesia provider?
+A. Apply positive end-expiratory pressure (PEEP) at 15 cm H2O, perform a Valsalva maneuver, and maintain
+nitrous oxide.
+B. Initiate bilateral jugular vein compression, lower the head if mechanics allow, discontinue nitrous oxide,
+administer 100% oxygen, and aspirate from the right heart retrieval catheter.
+C. Turn the patient immediately to a prone position on a Wilson frame while maintaining nitrous oxide to
+shrink the gas pocket.
+D. Administer a high-dose infusion of a volatile anesthetic to induce active pulmonary vasodilation.
+Correct Answer: B.
+Rationale: Box 53.6 and the surrounding text delineate the strict protocol for managing acute VAE. First, prevent
+further air entry by notifying the surgeon, applying direct jugular compression (which raises cerebral venous pressure
+and is superior to PEEP/Valsalva), and lowering the head. Second, treat the intravascular air by aspirating the right
+heart catheter, discontinuing nitrous oxide (which otherwise diffuses into and expands air bubbles), administering
+100% oxygen, and supporting with pressors/inotropes. PEEP and Valsalva (Option A) are strictly contraindicated
+because they increase the RAP-to-LAP gradient, drastically elevating the risk of Paradoxical Air Embolism (PAE)
+across a PFO. Prone positioning mid-embolism (Option C) is physically impossible in a head holder and unindicated.
+Volatile agents lower the transpulmonary passage threshold and are not used as an intervention (Option D). 
+Anesthesia Board Review: Chapter 53 Summary Study Guide Page 27 of 27`
+    }
+  ]
+};
