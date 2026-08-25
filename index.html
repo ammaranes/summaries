@@ -7,6 +7,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>KetofolDoc | Anesthesia Chapter Summaries</title>
   
+  <!-- Add Marked.js in <head> -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  
   <!-- Favicon & Touch Icon -->
   <link rel="icon" type="image/svg+xml" href="logo.svg" />
   <link rel="apple-touch-icon" href="logo.svg" />
@@ -20,6 +23,49 @@
     .safe-top { padding-top: env(safe-area-inset-top); }
     .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
     html { scroll-behavior: smooth; }
+  .prose-custom table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.825rem;
+}
+.prose-custom th {
+  background-color: rgba(30, 41, 59, 0.8);
+  color: #93c5fd;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  text-align: left;
+}
+.prose-custom td {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  color: #cbd5e1;
+}
+.prose-custom ul {
+  list-style-type: disc;
+  margin-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-custom ol {
+  list-style-type: decimal;
+  margin-left: 1.25rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.prose-custom strong {
+  color: #f8fafc;
+  font-weight: 700;
+}
+.prose-custom blockquote {
+  border-left: 3px solid #8b5cf6;
+  padding-left: 0.75rem;
+  margin: 0.75rem 0;
+  color: #c4b5fd;
+  background: rgba(139, 92, 246, 0.05);
+  padding: 0.5rem 0.75rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-purple-600 selection:text-white">
@@ -336,17 +382,9 @@
 
     // 🛠️ Markdown Formatter
     function formatMarkdown(text) {
-      if (!text) return '';
-      return text
-        .replace(/^### (.*$)/gim, '<h4 class="text-base font-bold text-slate-100 mt-4 mb-1">$1</h4>')
-        .replace(/^## (.*$)/gim, '<h3 class="text-lg font-bold text-slate-100 mt-5 mb-2">$1</h3>')
-        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-100">$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em class="italic text-slate-300">$1</em>')
-        .replace(/^-\s(.*$)/gim, '<li class="ml-4 list-disc text-slate-300 my-1 leading-relaxed">$1</li>')
-        .replace(/^\d+\.\s(.*$)/gim, '<li class="ml-4 list-decimal text-slate-300 my-1 leading-relaxed">$1</li>')
-        .replace(/\n\n/g, '<p class="my-3 leading-relaxed text-slate-300"></p>')
-        .replace(/\n/g, '<br/>');
-    }
+  if (!text) return '';
+  return marked.parse(text);
+}
 
     // Local Storage for User Quiz Progress
     const LOCAL_STORAGE_KEY = 'summaries_quiz_progress';
@@ -467,7 +505,7 @@
           activeBookId = res.bookId;
           activeChapterId = res.chapterId;
           renderReader();
-          document.getElementById('modal-search').classList.add('hidden');
+secDiv.className = 'bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-7 shadow-sm scroll-mt-24 prose-custom';
           
           setTimeout(() => {
             const secEl = document.getElementById(`section-${res.sectionIndex}`);
