@@ -22,7 +22,7 @@
     .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
     html { scroll-behavior: smooth; }
 
-    /* 📖 Continuous High-Comfort Reading Typography */
+    /* Continuous High-Comfort Reading Typography */
     .prose-reading {
       color: #cbd5e1;
       font-size: 1.05rem;
@@ -78,7 +78,7 @@
       color: #cbd5e1;
     }
 
-    /* 📊 Spacious Tables */
+    /* Spacious Responsive Tables */
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -117,7 +117,7 @@
       background-color: rgba(51, 65, 85, 0.2);
     }
 
-    /* Blockquotes & Clinical Pearls */
+    /* Blockquotes & Clinical Highlights */
     .prose-reading blockquote {
       border-left: 4px solid #a855f7;
       background: rgba(168, 85, 247, 0.08);
@@ -184,9 +184,14 @@
           <i data-lucide="list" class="w-5 h-5"></i>
         </button>
 
-        <!-- Sync / Auth Button -->
+        <!-- Google Auth Profile Button -->
         <button id="btn-auth" class="px-3 py-1.5 bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-500/50 rounded-xl text-xs font-semibold text-slate-200 flex items-center space-x-2 transition shrink-0">
-          <i data-lucide="cloud" class="w-3.5 h-3.5 text-purple-400"></i>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
           <span id="auth-label">Sign In</span>
         </button>
       </div>
@@ -230,21 +235,23 @@
         </div>
       </div>
 
-      <!-- Quick Filter Bar -->
-<div class="mt-6 max-w-md mx-auto relative">
-  <i data-lucide="search" class="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
-  <input 
-    type="search"
-    id="directory-filter-input"
-    name="chapter-filter"
-    autocomplete="off"
-    autocorrect="off"
-    autocapitalize="off"
-    spellcheck="false"
-    placeholder="Filter chapters by title, number, or keyword..." 
-    class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-12 pr-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition shadow-inner [&::-webkit-search-cancel-button]:hidden"
-  />
-</div>
+      <!-- Quick Filter Bar (Sanitized to prevent browser password prompts) -->
+      <div class="mt-6 max-w-md mx-auto relative">
+        <i data-lucide="search" class="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+        <input 
+          type="search" 
+          id="directory-filter-input" 
+          name="chapter-filter-search"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          placeholder="Filter chapters by title, number, or keyword..." 
+          class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-12 pr-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition shadow-inner [&::-webkit-search-cancel-button]:hidden"
+        />
+      </div>
+    </div>
+
     <!-- Chapter Cards Grid -->
     <div id="directory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
 
@@ -340,11 +347,15 @@
       <div class="p-4 border-b border-slate-800 flex items-center space-x-3 bg-slate-900/90">
         <i data-lucide="search" class="w-5 h-5 text-slate-400 shrink-0"></i>
         <input 
-          type="text" 
+          type="search" 
           id="search-input" 
-          placeholder="Search keywords, clinical trials, pharmacology, or concepts..." 
-          class="w-full bg-transparent text-slate-100 placeholder-slate-500 text-sm focus:outline-none"
+          name="global-summary-search"
           autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          placeholder="Search keywords, clinical trials, pharmacology, or concepts..." 
+          class="w-full bg-transparent text-slate-100 placeholder-slate-500 text-sm focus:outline-none [&::-webkit-search-cancel-button]:hidden"
         />
         <button id="btn-close-search" class="p-1 text-slate-400 hover:text-white rounded-lg active:bg-slate-800 shrink-0">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -384,7 +395,7 @@
 
       <div class="overflow-y-auto p-4 space-y-4 flex-1">
         
-        <!-- 🌐 3-Platform Ecosystem Hub Switcher -->
+        <!-- 3-Platform Ecosystem Switcher -->
         <div>
           <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 block">
             KetofolDoc Platforms
@@ -423,7 +434,7 @@
 
         <div class="border-t border-slate-800/80"></div>
 
-        <!-- 📚 Book Library Tabs -->
+        <!-- Book Library Tabs -->
         <div>
           <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 block">
             Textbook Library
@@ -431,7 +442,7 @@
           <div id="book-tabs" class="flex space-x-2 overflow-x-auto pb-1"></div>
         </div>
 
-        <!-- 📖 Chapter Selection List -->
+        <!-- Chapter Selection List -->
         <div>
           <div class="flex items-center justify-between mb-2">
             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
@@ -466,19 +477,19 @@
   <script type="module">
     import { allBooks } from './books/index.js';
 
-    // 🔥 Firebase Modular SDK Integration
+    // Firebase Modular SDK
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
     import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
     import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
-    // 🔑 KetofolDoc Firebase Configuration
+    // Unified KetofolDoc Firebase Configuration
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "ketofoldoc.firebaseapp.com",
-      projectId: "ketofoldoc",
-      storageBucket: "ketofoldoc.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      apiKey: "AIzaSyDTBiUKXcQ6i_0qdygn6sEUflFOlERzQOs",
+      authDomain: "qb-sync-e6294.firebaseapp.com",
+      projectId: "qb-sync-e6294",
+      storageBucket: "qb-sync-e6294.firebasestorage.app",
+      messagingSenderId: "94979024020",
+      appId: "1:94979024020:web:687bd4c064b87ff1180081"
     };
 
     let auth = null;
@@ -490,7 +501,7 @@
       auth = getAuth(app);
       db = getFirestore(app);
     } catch (e) {
-      console.warn("Firebase not configured; running in local storage mode.");
+      console.warn("Firebase Init:", e);
     }
 
     // Dynamic Multi-Bank Loader (Saudi Board QB & 1000 Questions)
@@ -505,14 +516,13 @@
         questionChapters = [...saudi, ...thousand];
       }
     } catch (e) {
-      console.info("Question decks not found or optional; operating in summary-only mode.");
+      console.info("Question decks not found or optional; running in summary mode.");
     }
 
-    // 🧠 SM-2 Spaced Repetition Algorithm Engine
+    // Spaced Repetition (SM-2) Engine
     function calculateSM2(cardState, quality) {
       let { reps = 0, interval = 1, easeFactor = 2.5 } = cardState || {};
       
-      // Quality rating: 1 (Again), 2 (Hard), 3 (Good), 4 (Easy)
       if (quality < 3) {
         reps = 0;
         interval = 1;
@@ -527,11 +537,10 @@
         reps += 1;
       }
 
-      // Ease Factor calculation with minimum boundary at 1.3
       easeFactor = Math.max(1.3, easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
       
       const now = Date.now();
-      const dueDate = now + (interval * 86400000); // interval in days converted to milliseconds
+      const dueDate = now + (interval * 86400000);
 
       return {
         reps,
@@ -543,7 +552,7 @@
       };
     }
 
-    // 💾 Global Unified State Storage
+    // Storage Management
     const LOCAL_SUMMARIES_KEY = 'ketofoldoc_summaries_progress';
     const LOCAL_SAUDI_KEY = 'saudi_board_progress';
     const LOCAL_1000_KEY = 'thousand_qs_progress';
@@ -579,13 +588,11 @@
 
       targetStates[qId] = newCardState;
 
-      // Save locally
       try {
         localStorage.setItem(targetStorageKey, JSON.stringify({ card_states: targetStates }));
         localStorage.setItem(LOCAL_SUMMARIES_KEY, JSON.stringify(summariesState));
       } catch (e) {}
 
-      // Push update directly to Firestore
       if (currentUser && db) {
         try {
           const userDocRef = doc(db, 'users', currentUser.uid);
@@ -599,7 +606,7 @@
       }
     }
 
-    // Auth State Listener
+    // Auth State Observer
     if (auth) {
       onAuthStateChanged(auth, async (user) => {
         currentUser = user;
@@ -641,10 +648,7 @@
     }
 
     document.getElementById('btn-auth').onclick = async () => {
-      if (!auth) {
-        alert("Firebase credentials not configured yet. Progress is stored locally in your browser!");
-        return;
-      }
+      if (!auth) return;
       if (currentUser) {
         if (confirm(`Signed in as ${currentUser.email || currentUser.displayName}.\nDo you want to sign out?`)) {
           await signOut(auth);
@@ -654,12 +658,12 @@
         try {
           await signInWithPopup(auth, provider);
         } catch (err) {
-          console.error("Sign-in failed:", err);
+          console.error("Google sign-in error:", err);
         }
       }
     };
 
-    // 🗺️ Topic & Keyword Mapping Table for Miller Chapters
+    // Topic & Keyword Mapping Table for Miller Chapters
     const CHAPTER_TOPIC_MAP = {
       10: { topic: "neuro", keywords: ["cerebral", "cbf", "icp", "brain", "autoregulation", "cpp", "jugular", "isoflurane", "burst suppression"] },
       11: { topic: "pharmacology", keywords: ["neuromuscular", "acetylcholine", "nmj", "receptor", "depolarizing", "myasthenia"] },
@@ -744,7 +748,7 @@
       document.getElementById('reading-progress-fill').style.width = `${scrolled}%`;
     });
 
-    // --- Navigation & View Switching ---
+    // Navigation & Views
     function showDirectory() {
       activeChapterId = null;
       window.location.hash = '';
@@ -804,7 +808,7 @@
       renderDirectory();
     }
 
-    // --- Render Directory Landing Grid ---
+    // Render Directory Landing Grid
     function renderDirectory(filterQuery = '') {
       const book = getActiveBook();
       const grid = document.getElementById('directory-grid');
@@ -891,7 +895,7 @@
     document.getElementById('btn-back-to-library').onclick = showDirectory;
     document.getElementById('btn-bottom-library').onclick = showDirectory;
 
-    // --- Search Engine ---
+    // Search Engine
     function searchAllSummaries(query) {
       const clean = query.trim().toLowerCase();
       if (clean.length < 2) return [];
@@ -1010,7 +1014,7 @@
       }
     });
 
-    // 🎯 Dual-Bank Question Matching Engine with SM-2 Spaced Repetition Integration
+    // Dual-Bank Question Matching Engine with Cross-Platform SM-2
     function renderInteractiveQuestions(chapterNumber) {
       const container = document.getElementById('quiz-cards-container');
       const badge = document.getElementById('quiz-count-badge');
@@ -1038,7 +1042,6 @@
         return;
       }
 
-      // Score all questions
       const scored = allAvailableQuestions.map(q => {
         let score = 0;
         const fullContent = `${q.stem || ''} ${q.explanation || ''} ${Object.values(q.options || {}).join(' ')}`.toLowerCase();
@@ -1106,7 +1109,6 @@
           ? 'bg-blue-950/80 text-blue-300 border-blue-800/60' 
           : 'bg-emerald-950/80 text-emerald-300 border-emerald-800/60';
 
-        // Retrieve existing SRS state for this question
         const cardStates = isSaudi ? saudiBoardCardStates : thousandQsCardStates;
         const existingSRS = cardStates[qId];
 
@@ -1159,7 +1161,6 @@
         });
         cardHtml += `</div>`;
 
-        // Explanation & Spaced Repetition Rating Panel
         if (isRevealed) {
           cardHtml += `
             <div class="mt-5 pt-4 border-t border-slate-800 text-sm text-slate-300 leading-relaxed bg-slate-950/60 p-4 sm:p-5 rounded-xl">
@@ -1168,7 +1169,6 @@
               </div>
               <div class="text-slate-300 prose-reading mb-5">${formatMarkdown(q.explanation) || 'No rationale provided.'}</div>
               
-              <!-- SM-2 Spaced Repetition Rating Action Bar -->
               <div class="pt-4 border-t border-slate-800/80">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
                   Update Spaced Repetition Memory State
@@ -1199,13 +1199,11 @@
 
         card.innerHTML = cardHtml;
 
-        // Option Click -> Reveal Answer & Automatically Execute Initial SM-2 Calculation
         card.querySelectorAll('.options-wrapper button').forEach(btn => {
           btn.onclick = async () => {
             const letter = btn.getAttribute('data-letter');
             summariesState.quizAnswers[qId] = letter;
 
-            // Determine initial automatic SM-2 rating (Good=3 if correct, Again=1 if incorrect)
             const initialQuality = (letter === q.correctAnswer) ? 3 : 1;
             await syncCardSRS(q, initialQuality);
 
@@ -1213,7 +1211,6 @@
           };
         });
 
-        // Custom Manual SM-2 Rating Adjustments
         card.querySelectorAll('.srs-btn').forEach(srsBtn => {
           srsBtn.onclick = async () => {
             const quality = parseInt(srsBtn.getAttribute('data-quality'), 10);
@@ -1228,7 +1225,7 @@
       lucide.createIcons();
     }
 
-    // --- Reader Renderer ---
+    // Reader Renderer
     function renderReader() {
       lucide.createIcons();
       const book = getActiveBook();
@@ -1239,19 +1236,16 @@
         return;
       }
 
-      // Update Header
       document.getElementById('header-book-title').textContent = `${book.title} Summaries`;
       document.getElementById('header-chapter-title').textContent = ch.title;
       document.getElementById('header-read-time').textContent = `${ch.readTimeMinutes || 8} min read`;
 
-      // Update Banner
       document.getElementById('banner-book-badge').textContent = book.title;
       document.getElementById('banner-chapter-number').textContent = `Chapter ${ch.chapterNumber || ''}`;
       document.getElementById('chapter-headline').textContent = ch.title;
       document.getElementById('chapter-read-time-val').textContent = `${ch.readTimeMinutes || 8} min read`;
       document.getElementById('chapter-sections-count-val').textContent = `${(ch.sections || []).length} Sections`;
 
-      // Update "Mark as Read" Toggle Buttons
       const isRead = Boolean(summariesState.readChapters[ch.id]);
       const topBtn = document.getElementById('btn-toggle-read-top');
       const topText = document.getElementById('btn-toggle-read-text-top');
@@ -1275,7 +1269,6 @@
       topBtn.onclick = () => toggleChapterRead(ch.id);
       bottomBtn.onclick = () => toggleChapterRead(ch.id);
 
-      // Render Continuous Document Content
       const container = document.getElementById('sections-container');
       container.innerHTML = '';
 
@@ -1298,10 +1291,8 @@
         container.appendChild(secDiv);
       });
 
-      // Render Interactive Recall Practice with Cross-Platform SM-2
       renderInteractiveQuestions(ch.chapterNumber || 1);
 
-      // Chapter Next/Prev Navigation
       const chIndex = book.chapters.findIndex(c => c.id === ch.id);
       const prevBtn = document.getElementById('btn-prev-chapter');
       const nextBtn = document.getElementById('btn-next-chapter');
@@ -1317,21 +1308,17 @@
         : 'w-full sm:w-auto flex-1 py-3.5 px-5 bg-purple-600 hover:bg-purple-500 active:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-2xl flex items-center justify-center transition shadow-lg shadow-purple-600/20';
 
       prevBtn.onclick = () => {
-        if (chIndex > 0) {
-          openChapter(book.chapters[chIndex - 1].id);
-        }
+        if (chIndex > 0) openChapter(book.chapters[chIndex - 1].id);
       };
 
       nextBtn.onclick = () => {
-        if (chIndex < book.chapters.length - 1) {
-          openChapter(book.chapters[chIndex + 1].id);
-        }
+        if (chIndex < book.chapters.length - 1) openChapter(book.chapters[chIndex + 1].id);
       };
 
       lucide.createIcons();
     }
 
-    // --- Table of Contents Drawer ---
+    // In-Chapter Table of Contents Drawer
     function renderTOC() {
       const ch = getActiveChapter();
       const list = document.getElementById('toc-list');
@@ -1365,7 +1352,7 @@
     };
     document.getElementById('btn-close-toc').onclick = () => document.getElementById('modal-toc').classList.add('hidden');
 
-    // --- Books & Chapter Navigation Modal ---
+    // Books & Chapter Drawer Navigation Modal
     function renderDrawer() {
       const book = getActiveBook();
       const tabs = document.getElementById('book-tabs');
@@ -1438,7 +1425,7 @@
     };
     document.getElementById('btn-close-decks').onclick = () => document.getElementById('modal-decks').classList.add('hidden');
 
-    // Handle Initial URL Hash Routing
+    // Handle Hash Routing
     const initialHash = window.location.hash.replace('#', '').trim();
     const book = getActiveBook();
     const initialChapter = book?.chapters.find(c => c.id === initialHash);
