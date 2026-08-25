@@ -136,8 +136,16 @@
   <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-40 safe-top">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 min-h-[3.75rem] flex items-center justify-between gap-3">
       
-      <!-- Left: Menu, Logo & Titles -->
+      <!-- Left: Navigation Controls & Brand -->
       <div class="flex items-center space-x-2.5 min-w-0 flex-1">
+        
+        <!-- Back to Library Button -->
+        <button id="btn-back-to-library" class="hidden px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-purple-300 hover:text-white rounded-xl text-xs font-bold transition flex items-center space-x-1.5 shrink-0 border border-slate-700/60">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">All Chapters</span>
+        </button>
+
+        <!-- Menu Drawer Button -->
         <button id="btn-menu" class="p-2 text-slate-400 hover:text-white rounded-lg active:bg-slate-800 shrink-0" title="Chapters & Navigation">
           <i data-lucide="layers" class="w-5 h-5"></i>
         </button>
@@ -146,68 +154,129 @@
           <img src="logo.svg" alt="App Logo" class="w-8 h-8 rounded-lg border border-slate-700/60 object-contain" />
         </a>
 
+        <!-- Title Block -->
         <div class="min-w-0 flex-1 flex flex-col justify-center">
           <span id="header-book-title" class="text-[10px] font-bold uppercase tracking-wider text-purple-400 truncate leading-tight">
             Miller's Anesthesia Summaries
           </span>
           <div class="flex items-center space-x-2 truncate">
             <h1 id="header-chapter-title" class="font-bold text-xs sm:text-sm text-slate-100 truncate leading-snug">
-              Loading Chapter...
+              Chapter Library
             </h1>
-            <span class="text-slate-600 text-xs">•</span>
-            <p id="header-read-time" class="text-[11px] font-medium text-emerald-400 truncate leading-snug">
+            <span id="header-separator" class="hidden text-slate-600 text-xs">•</span>
+            <p id="header-read-time" class="hidden text-[11px] font-medium text-emerald-400 truncate leading-snug">
               0 min read
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Right: Search & Table of Contents -->
-      <div class="flex items-center space-x-1 sm:space-x-2 shrink-0">
+      <!-- Right: Search, Actions & Auth Profile -->
+      <div class="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+        
+        <!-- Search Trigger -->
         <button id="btn-search" class="p-2 text-slate-400 hover:text-purple-400 rounded-lg active:bg-slate-800 transition shrink-0" title="Search Summaries (Ctrl + K)">
           <i data-lucide="search" class="w-5 h-5"></i>
         </button>
 
-        <button id="btn-toc-toggle" class="p-2 text-slate-400 hover:text-emerald-400 rounded-lg active:bg-slate-800 transition shrink-0" title="Table of Contents">
+        <!-- Table of Contents Toggle (Reader Mode) -->
+        <button id="btn-toc-toggle" class="hidden p-2 text-slate-400 hover:text-emerald-400 rounded-lg active:bg-slate-800 transition shrink-0" title="Table of Contents">
           <i data-lucide="list" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Sync / Auth Button -->
+        <button id="btn-auth" class="px-3 py-1.5 bg-slate-800/80 hover:bg-slate-800 border border-slate-700/80 hover:border-purple-500/50 rounded-xl text-xs font-semibold text-slate-200 flex items-center space-x-2 transition shrink-0">
+          <i data-lucide="cloud" class="w-3.5 h-3.5 text-purple-400"></i>
+          <span id="auth-label">Sign In</span>
         </button>
       </div>
 
     </div>
 
     <!-- Reading Progress Bar -->
-    <div class="w-full bg-slate-800 h-1">
+    <div id="reading-progress-bar" class="hidden w-full bg-slate-800 h-1">
       <div id="reading-progress-fill" class="bg-purple-500 h-1 w-0 transition-all duration-150"></div>
     </div>
   </header>
 
-  <!-- Main Reader Canvas -->
-  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-8 py-8 pb-36">
+  <!-- ========================================== -->
+  <!-- 📚 VIEW 1: CHAPTERS DIRECTORY / LANDING    -->
+  <!-- ========================================== -->
+  <section id="view-directory" class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-8 py-10 pb-36">
     
-    <!-- Empty State -->
-    <div id="view-empty" class="hidden my-auto text-center py-20 px-4">
-      <div class="w-16 h-16 bg-slate-800 text-slate-400 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-700">
-        <i data-lucide="book-open" class="w-8 h-8"></i>
+    <!-- Hero Banner -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-800/60 text-purple-300 text-xs font-semibold mb-4">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-purple-400"></i>
+        <span id="directory-badge-count">Miller's 9th Edition Summaries</span>
       </div>
-      <h2 class="text-xl font-bold text-slate-100 mb-2">No Chapter Selected</h2>
-      <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">Select a chapter from the menu to start reading.</p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight mb-4">
+        Textbook Chapter Summaries
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto mb-6">
+        High-yield structured summaries, clinical pearls, and cloud-synced chapter recall practice.
+      </p>
+
+      <!-- Overall Reading Progress Dashboard -->
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 max-w-md mx-auto shadow-sm">
+        <div class="flex items-center justify-between text-xs font-semibold mb-2">
+          <span class="text-slate-400 flex items-center">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5 text-emerald-400"></i> Overall Progress
+          </span>
+          <span id="overall-progress-text" class="text-purple-300 font-bold">0 / 0 Completed</span>
+        </div>
+        <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+          <div id="overall-progress-bar" class="bg-gradient-to-r from-purple-500 to-emerald-400 h-2 w-0 transition-all duration-300 rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Quick Filter Bar -->
+      <div class="mt-6 max-w-md mx-auto relative">
+        <i data-lucide="search" class="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2"></i>
+        <input 
+          type="text" 
+          id="directory-filter-input" 
+          placeholder="Filter chapters by title, number, or keyword..." 
+          class="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-12 pr-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-purple-500 transition shadow-inner"
+        />
+      </div>
     </div>
 
-    <!-- Chapter Header Banner -->
+    <!-- Chapter Cards Grid -->
+    <div id="directory-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 📖 VIEW 2: CONTINUOUS CHAPTER READER       -->
+  <!-- ========================================== -->
+  <main id="view-reader" class="hidden flex-1 max-w-6xl w-full mx-auto px-4 sm:px-8 py-8 pb-36">
+
+    <!-- Chapter Header Banner & Mark as Read Button -->
     <div id="chapter-banner" class="mb-10 pb-8 border-b border-slate-800/80">
-      <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400 mb-3">
-        <span id="banner-book-badge" class="px-3 py-0.5 rounded-full bg-purple-950/70 border border-purple-800/60">Miller's Anesthesia</span>
-        <span class="text-slate-600">•</span>
-        <span id="banner-chapter-number" class="text-slate-400">Chapter 1</span>
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-3">
+        <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-purple-400">
+          <span id="banner-book-badge" class="px-3 py-0.5 rounded-full bg-purple-950/70 border border-purple-800/60">Miller's Anesthesia</span>
+          <span class="text-slate-600">•</span>
+          <span id="banner-chapter-number" class="text-slate-400">Chapter 1</span>
+        </div>
+
+        <!-- Top "Mark as Read" Toggle Button -->
+        <button id="btn-toggle-read-top" class="self-start sm:self-auto px-3.5 py-1.5 rounded-xl border text-xs font-semibold transition flex items-center space-x-2 shadow-sm">
+          <i data-lucide="check" class="w-4 h-4"></i>
+          <span id="btn-toggle-read-text-top">Mark as Read</span>
+        </button>
       </div>
+
       <h1 id="chapter-headline" class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-100 tracking-tight leading-tight mb-4"></h1>
+      
       <div class="flex items-center space-x-5 text-xs sm:text-sm text-slate-400">
         <span class="inline-flex items-center"><i data-lucide="clock" class="w-4 h-4 mr-1.5 text-emerald-400"></i> <span id="chapter-read-time-val">10 min read</span></span>
         <span class="inline-flex items-center"><i data-lucide="layers" class="w-4 h-4 mr-1.5 text-purple-400"></i> <span id="chapter-sections-count-val">5 Sections</span></span>
       </div>
     </div>
 
-    <!-- 📖 Single Unified Continuous Document Surface -->
+    <!-- Continuous Document Surface -->
     <article id="single-document-surface" class="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 sm:p-12 lg:p-16 shadow-2xl backdrop-blur-sm prose-reading">
       <div id="sections-container" class="space-y-12"></div>
     </article>
@@ -233,14 +302,30 @@
       <div id="quiz-cards-container" class="grid grid-cols-1 gap-6"></div>
     </section>
 
-    <!-- Bottom Chapter Navigation -->
-    <div class="mt-16 pt-8 border-t border-slate-800/80 flex items-center justify-between gap-4">
-      <button id="btn-prev-chapter" class="flex-1 py-3.5 px-5 bg-slate-900 hover:bg-slate-800 active:bg-slate-700 border border-slate-800 rounded-2xl font-semibold text-xs sm:text-sm flex items-center justify-center text-slate-300 transition">
-        <i data-lucide="chevron-left" class="w-4 h-4 mr-2"></i> Previous Chapter
-      </button>
-      <button id="btn-next-chapter" class="flex-1 py-3.5 px-5 bg-purple-600 hover:bg-purple-500 active:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-2xl flex items-center justify-center transition shadow-lg shadow-purple-600/20">
-        Next Chapter <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i>
-      </button>
+    <!-- Bottom Chapter Navigation & Mark as Read -->
+    <div class="mt-16 pt-8 border-t border-slate-800/80 flex flex-col gap-4">
+      
+      <!-- Center Complete Button -->
+      <div class="flex justify-center">
+        <button id="btn-toggle-read-bottom" class="w-full sm:w-auto px-6 py-3 rounded-2xl border text-sm font-bold transition flex items-center justify-center space-x-2 shadow-lg">
+          <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+          <span id="btn-toggle-read-text-bottom">Mark Chapter as Completed</span>
+        </button>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-2">
+        <button id="btn-prev-chapter" class="w-full sm:w-auto flex-1 py-3.5 px-5 bg-slate-900 hover:bg-slate-800 active:bg-slate-700 border border-slate-800 rounded-2xl font-semibold text-xs sm:text-sm flex items-center justify-center text-slate-300 transition">
+          <i data-lucide="chevron-left" class="w-4 h-4 mr-2"></i> Previous Chapter
+        </button>
+
+        <button id="btn-bottom-library" class="w-full sm:w-auto py-3.5 px-6 bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-2xl font-semibold text-xs sm:text-sm text-purple-300 hover:text-white flex items-center justify-center transition">
+          <i data-lucide="grid" class="w-4 h-4 mr-2"></i> Back to All Chapters
+        </button>
+
+        <button id="btn-next-chapter" class="w-full sm:w-auto flex-1 py-3.5 px-5 bg-purple-600 hover:bg-purple-500 active:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-2xl flex items-center justify-center transition shadow-lg shadow-purple-600/20">
+          Next Chapter <i data-lucide="chevron-right" class="w-4 h-4 ml-2"></i>
+        </button>
+      </div>
     </div>
 
   </main>
@@ -374,11 +459,38 @@
     </div>
   </div>
 
-  <!-- ES6 Application Logic -->
+  <!-- ES6 Application Logic + Firebase Sync Engine -->
   <script type="module">
     import { allBooks } from './books/index.js';
+
+    // 🔥 Firebase Modular SDK Integration
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
+    import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+    // 🔑 Paste your KetofolDoc Firebase credentials below
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "ketofoldoc.firebaseapp.com",
+      projectId: "ketofoldoc",
+      storageBucket: "ketofoldoc.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    let auth = null;
+    let db = null;
+    let currentUser = null;
+
+    try {
+      const app = initializeApp(firebaseConfig);
+      auth = getAuth(app);
+      db = getFirestore(app);
+    } catch (e) {
+      console.warn("Firebase not configured; running in local storage mode.");
+    }
     
-    // Dynamic Multi-Bank Loader (Loads from both Saudi Board QB and 1000 Questions)
+    // Dynamic Multi-Bank Loader (Saudi Board QB & 1000 Questions)
     let questionChapters = [];
     try {
       const imported = await import('./decks/index.js');
@@ -457,22 +569,91 @@
       return rawHtml.replace(/<table/g, '<div class="table-wrapper"><table').replace(/<\/table>/g, '</table></div>');
     }
 
-    // Local Storage for User Quiz Progress
-    const LOCAL_STORAGE_KEY = 'summaries_quiz_progress';
-    let userProgress = {};
+    // 💾 User Progress Data Structure (Reading & Quiz Status)
+    const STORAGE_KEY = 'ketofoldoc_summaries_progress';
+    let userProgress = {
+      readChapters: {}, // { "miller_ch10": true, "miller_ch58": true }
+      quizAnswers: {}   // { "ch58_q0": "B" }
+    };
+
+    // Load from Local Storage
     try {
-      const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
-      if (saved) userProgress = JSON.parse(saved);
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) userProgress = { ...userProgress, ...JSON.parse(saved) };
     } catch (e) {}
 
-    function saveUserProgress() {
+    // Save locally and sync to Firestore
+    async function saveProgress() {
       try {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(userProgress));
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userProgress));
       } catch (e) {}
+
+      if (currentUser && db) {
+        try {
+          const userDocRef = doc(db, 'users', currentUser.uid);
+          await setDoc(userDocRef, { summaries_progress: userProgress }, { merge: true });
+        } catch (e) {
+          console.error("Firestore sync error:", e);
+        }
+      }
     }
 
+    // Auth State Tracking & Cloud Sync
+    if (auth) {
+      onAuthStateChanged(auth, async (user) => {
+        currentUser = user;
+        const authBtnLabel = document.getElementById('auth-label');
+        
+        if (user) {
+          authBtnLabel.textContent = user.displayName ? user.displayName.split(' ')[0] : 'Account';
+          
+          // Pull remote data from Firestore
+          if (db) {
+            try {
+              const snap = await getDoc(doc(db, 'users', user.uid));
+              if (snap.exists() && snap.data().summaries_progress) {
+                const remote = snap.data().summaries_progress;
+                userProgress.readChapters = { ...userProgress.readChapters, ...(remote.readChapters || {}) };
+                userProgress.quizAnswers = { ...userProgress.quizAnswers, ...(remote.quizAnswers || {}) };
+                saveProgress();
+              }
+            } catch (e) {
+              console.error("Error fetching cloud progress:", e);
+            }
+          }
+        } else {
+          authBtnLabel.textContent = 'Sign In';
+        }
+
+        if (activeChapterId) {
+          renderReader();
+        } else {
+          renderDirectory();
+        }
+      });
+    }
+
+    document.getElementById('btn-auth').onclick = async () => {
+      if (!auth) {
+        alert("Firebase credentials not configured yet. Your progress is saved locally on this browser!");
+        return;
+      }
+      if (currentUser) {
+        if (confirm(`Signed in as ${currentUser.email || currentUser.displayName}.\nDo you want to sign out?`)) {
+          await signOut(auth);
+        }
+      } else {
+        const provider = new GoogleAuthProvider();
+        try {
+          await signInWithPopup(auth, provider);
+        } catch (err) {
+          console.error("Sign-in failed:", err);
+        }
+      }
+    };
+
     let activeBookId = allBooks[0]?.id || 'miller';
-    let activeChapterId = allBooks[0]?.chapters[0]?.id || null;
+    let activeChapterId = null;
 
     function getActiveBook() {
       return allBooks.find(b => b.id === activeBookId) || allBooks[0];
@@ -480,17 +661,156 @@
 
     function getActiveChapter() {
       const book = getActiveBook();
-      if (!book) return null;
-      return book.chapters.find(c => c.id === activeChapterId) || book.chapters[0];
+      if (!book || !activeChapterId) return null;
+      return book.chapters.find(c => c.id === activeChapterId) || null;
     }
 
     // Scroll Progress Tracker
     window.addEventListener('scroll', () => {
+      if (!activeChapterId) return;
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
       document.getElementById('reading-progress-fill').style.width = `${scrolled}%`;
     });
+
+    // --- Navigation & View Switching ---
+    function showDirectory() {
+      activeChapterId = null;
+      window.location.hash = '';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      document.getElementById('view-directory').classList.remove('hidden');
+      document.getElementById('view-reader').classList.add('hidden');
+      
+      document.getElementById('btn-back-to-library').classList.add('hidden');
+      document.getElementById('btn-toc-toggle').classList.add('hidden');
+      document.getElementById('reading-progress-bar').classList.add('hidden');
+      document.getElementById('header-chapter-title').textContent = 'Chapter Library';
+      document.getElementById('header-separator').classList.add('hidden');
+      document.getElementById('header-read-time').classList.add('hidden');
+
+      renderDirectory();
+      lucide.createIcons();
+    }
+
+    function openChapter(chapterId) {
+      activeChapterId = chapterId;
+      window.location.hash = chapterId;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      document.getElementById('view-directory').classList.add('hidden');
+      document.getElementById('view-reader').classList.remove('hidden');
+
+      document.getElementById('btn-back-to-library').classList.remove('hidden');
+      document.getElementById('btn-toc-toggle').classList.remove('hidden');
+      document.getElementById('reading-progress-bar').classList.remove('hidden');
+      document.getElementById('header-separator').classList.remove('hidden');
+      document.getElementById('header-read-time').classList.remove('hidden');
+
+      renderReader();
+      lucide.createIcons();
+    }
+
+    // Toggle Chapter Read Status
+    function toggleChapterRead(chapterId) {
+      if (userProgress.readChapters[chapterId]) {
+        delete userProgress.readChapters[chapterId];
+      } else {
+        userProgress.readChapters[chapterId] = true;
+      }
+      saveProgress();
+      renderReader();
+      renderDirectory();
+    }
+
+    // --- Render Directory Landing Grid ---
+    function renderDirectory(filterQuery = '') {
+      const book = getActiveBook();
+      const grid = document.getElementById('directory-grid');
+      const badge = document.getElementById('directory-badge-count');
+      grid.innerHTML = '';
+
+      if (!book) return;
+
+      badge.textContent = `${book.chapters.length} Chapters Available`;
+
+      // Calculate Progress
+      const totalChapters = book.chapters.length;
+      const readCount = book.chapters.filter(ch => Boolean(userProgress.readChapters[ch.id])).length;
+      const percent = totalChapters > 0 ? Math.round((readCount / totalChapters) * 100) : 0;
+
+      document.getElementById('overall-progress-text').textContent = `${readCount} / ${totalChapters} Chapters Read (${percent}%)`;
+      document.getElementById('overall-progress-bar').style.width = `${percent}%`;
+
+      const cleanQuery = filterQuery.trim().toLowerCase();
+      const filtered = book.chapters.filter(ch => {
+        if (!cleanQuery) return true;
+        const numMatch = String(ch.chapterNumber).includes(cleanQuery);
+        const titleMatch = ch.title.toLowerCase().includes(cleanQuery);
+        return numMatch || titleMatch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-16 text-center text-slate-500 text-sm">
+            No chapters match your search query "<b>${filterQuery}</b>".
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(ch => {
+        const isRead = Boolean(userProgress.readChapters[ch.id]);
+        const card = document.createElement('div');
+        
+        card.className = isRead
+          ? 'bg-slate-900/90 border border-emerald-500/40 hover:border-emerald-400/70 rounded-2xl p-6 flex flex-col justify-between group hover:shadow-xl hover:shadow-emerald-950/20 transition cursor-pointer'
+          : 'bg-slate-900/80 border border-slate-800 hover:border-purple-500/60 rounded-2xl p-6 flex flex-col justify-between group hover:shadow-xl hover:shadow-purple-950/20 transition cursor-pointer';
+
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center space-x-2">
+                <span class="px-2.5 py-0.5 rounded-lg bg-purple-950/80 border border-purple-800/60 text-purple-300 text-[11px] font-bold">
+                  Chapter ${ch.chapterNumber}
+                </span>
+                ${isRead ? `<span class="px-2 py-0.5 rounded-lg bg-emerald-950/80 border border-emerald-800/60 text-emerald-300 text-[10px] font-bold flex items-center"><i data-lucide="check" class="w-3 h-3 mr-1"></i> Read</span>` : ''}
+              </div>
+              <span class="text-xs text-slate-500 flex items-center">
+                <i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-emerald-400"></i> ${ch.readTimeMinutes || 8} min
+              </span>
+            </div>
+            
+            <h3 class="text-base sm:text-lg font-bold text-slate-100 group-hover:text-purple-300 transition line-clamp-2 leading-snug mb-3">
+              ${ch.title}
+            </h3>
+
+            <p class="text-xs text-slate-400 mb-6 flex items-center space-x-2">
+              <i data-lucide="layers" class="w-3.5 h-3.5 text-purple-400"></i>
+              <span>${(ch.sections || []).length} High-Yield Sections</span>
+            </p>
+          </div>
+
+          <div class="w-full py-2.5 ${isRead ? 'bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 group-hover:bg-emerald-600 group-hover:text-white' : 'bg-slate-800 group-hover:bg-purple-600 text-slate-300 group-hover:text-white'} active:scale-[0.99] font-semibold text-xs rounded-xl flex items-center justify-center transition shadow-md">
+            <span>${isRead ? 'Read Again' : 'Read Summary'}</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-1"></i>
+          </div>
+        `;
+
+        card.onclick = () => openChapter(ch.id);
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    document.getElementById('directory-filter-input').addEventListener('input', (e) => {
+      renderDirectory(e.target.value);
+    });
+
+    document.getElementById('btn-back-to-library').onclick = showDirectory;
+    document.getElementById('btn-bottom-library').onclick = showDirectory;
 
     // --- Search Engine ---
     function searchAllSummaries(query) {
@@ -574,8 +894,7 @@
 
         item.onclick = () => {
           activeBookId = res.bookId;
-          activeChapterId = res.chapterId;
-          renderReader();
+          openChapter(res.chapterId);
           document.getElementById('modal-search').classList.add('hidden');
           
           setTimeout(() => {
@@ -612,7 +931,7 @@
       }
     });
 
-    // 🎯 Dual-Bank Question Matching Engine
+    // 🎯 Dual-Bank Question Matching Engine (5 to 10 Questions)
     function renderInteractiveQuestions(chapterNumber) {
       const container = document.getElementById('quiz-cards-container');
       const badge = document.getElementById('quiz-count-badge');
@@ -622,7 +941,6 @@
       const mapping = CHAPTER_TOPIC_MAP[chapterNumber] || { topic: "general", keywords: [] };
       const allAvailableQuestions = [];
 
-      // Flatten questions from both banks
       questionChapters.forEach(deck => {
         (deck.questions || []).forEach(q => {
           allAvailableQuestions.push({
@@ -639,7 +957,6 @@
         return;
       }
 
-      // Score all questions against the chapter's keyword list
       const scored = allAvailableQuestions.map(q => {
         let score = 0;
         const fullContent = `${q.stem || ''} ${q.explanation || ''} ${Object.values(q.options || {}).join(' ')}`.toLowerCase();
@@ -653,29 +970,33 @@
         return { ...q, _relevanceScore: score };
       });
 
-      // Split questions by source to guarantee balanced representation
       const saudiScored = scored.filter(q => q._sourceName === 'Saudi Board QB' && q._relevanceScore > 0)
                                 .sort((a, b) => b._relevanceScore - a._relevanceScore);
       const thousandScored = scored.filter(q => q._sourceName === '1000 Questions' && q._relevanceScore > 0)
                                    .sort((a, b) => b._relevanceScore - a._relevanceScore);
 
-      let selectedQuestions = [];
+      const MAX_PER_SOURCE = 4;
+      const TARGET_TOTAL = 8;
 
-      // Take top 2 from Saudi Board + top 2 from 1000 Questions
-      if (saudiScored.length >= 2 && thousandScored.length >= 2) {
-        selectedQuestions = [...saudiScored.slice(0, 2), ...thousandScored.slice(0, 2)];
-      } else {
-        // Fallback: take top 4 overall highest scored
-        selectedQuestions = scored.filter(q => q._relevanceScore > 0)
-                                  .sort((a, b) => b._relevanceScore - a._relevanceScore)
-                                  .slice(0, 4);
+      let selectedQuestions = [
+        ...saudiScored.slice(0, MAX_PER_SOURCE),
+        ...thousandScored.slice(0, MAX_PER_SOURCE)
+      ];
+
+      if (selectedQuestions.length < 5) {
+        const chosenSet = new Set(selectedQuestions);
+        const remaining = scored.filter(q => q._relevanceScore > 0 && !chosenSet.has(q))
+                                .sort((a, b) => b._relevanceScore - a._relevanceScore);
+        for (const q of remaining) {
+          if (selectedQuestions.length >= TARGET_TOTAL) break;
+          selectedQuestions.push(q);
+        }
       }
 
-      // If keywords yielded no results, fallback to matching deck titles
       if (selectedQuestions.length === 0) {
         const matchingDeck = questionChapters.find(d => (d.title || '').toLowerCase().includes(mapping.topic));
         if (matchingDeck && matchingDeck.questions) {
-          selectedQuestions = matchingDeck.questions.slice(0, 4).map(q => ({
+          selectedQuestions = matchingDeck.questions.slice(0, TARGET_TOTAL).map(q => ({
             ...q,
             _deckTitle: matchingDeck.title,
             _sourceName: matchingDeck.sourceName || 'Question Bank',
@@ -694,7 +1015,7 @@
 
       selectedQuestions.forEach((q, qIndex) => {
         const cardKey = `ch${chapterNumber}_q${qIndex}`;
-        const selectedAns = userProgress[cardKey];
+        const selectedAns = userProgress.quizAnswers[cardKey];
         const isRevealed = Boolean(selectedAns);
 
         const isSaudi = q._sourceName === 'Saudi Board QB';
@@ -757,8 +1078,8 @@
         card.querySelectorAll('.options-wrapper button').forEach(btn => {
           btn.onclick = () => {
             const letter = btn.getAttribute('data-letter');
-            userProgress[cardKey] = letter;
-            saveUserProgress();
+            userProgress.quizAnswers[cardKey] = letter;
+            saveProgress();
             renderInteractiveQuestions(chapterNumber);
           };
         });
@@ -769,23 +1090,16 @@
       lucide.createIcons();
     }
 
-    // --- Reader Renderer (Continuous Document Canvas) ---
+    // --- Reader Renderer ---
     function renderReader() {
       lucide.createIcons();
       const book = getActiveBook();
       const ch = getActiveChapter();
 
       if (!book || !ch) {
-        document.getElementById('view-empty').classList.remove('hidden');
-        document.getElementById('chapter-banner').classList.add('hidden');
-        document.getElementById('single-document-surface').classList.add('hidden');
-        document.getElementById('chapter-quiz-section').classList.add('hidden');
+        showDirectory();
         return;
       }
-
-      document.getElementById('view-empty').classList.add('hidden');
-      document.getElementById('chapter-banner').classList.remove('hidden');
-      document.getElementById('single-document-surface').classList.remove('hidden');
 
       // Update Header
       document.getElementById('header-book-title').textContent = `${book.title} Summaries`;
@@ -798,6 +1112,30 @@
       document.getElementById('chapter-headline').textContent = ch.title;
       document.getElementById('chapter-read-time-val').textContent = `${ch.readTimeMinutes || 8} min read`;
       document.getElementById('chapter-sections-count-val').textContent = `${(ch.sections || []).length} Sections`;
+
+      // Update "Mark as Read" Toggle Buttons
+      const isRead = Boolean(userProgress.readChapters[ch.id]);
+      const topBtn = document.getElementById('btn-toggle-read-top');
+      const topText = document.getElementById('btn-toggle-read-text-top');
+      const bottomBtn = document.getElementById('btn-toggle-read-bottom');
+      const bottomText = document.getElementById('btn-toggle-read-text-bottom');
+
+      if (isRead) {
+        topBtn.className = 'self-start sm:self-auto px-3.5 py-1.5 rounded-xl bg-emerald-950/80 border border-emerald-500/60 text-emerald-300 text-xs font-semibold flex items-center space-x-1.5 hover:bg-rose-950/40 hover:border-rose-500/60 hover:text-rose-300 transition';
+        topText.textContent = 'Completed (Mark Unread)';
+
+        bottomBtn.className = 'w-full sm:w-auto px-6 py-3 rounded-2xl bg-emerald-950/80 border border-emerald-500/60 text-emerald-300 text-sm font-bold flex items-center justify-center space-x-2 hover:bg-rose-950/40 hover:border-rose-500/60 hover:text-rose-300 transition';
+        bottomText.textContent = '✓ Chapter Completed (Click to Unmark)';
+      } else {
+        topBtn.className = 'self-start sm:self-auto px-3.5 py-1.5 rounded-xl bg-slate-800/90 border border-slate-700 hover:border-emerald-500/60 text-slate-300 hover:text-emerald-300 text-xs font-semibold flex items-center space-x-1.5 transition';
+        topText.textContent = 'Mark as Read';
+
+        bottomBtn.className = 'w-full sm:w-auto px-6 py-3 rounded-2xl bg-slate-900 border border-slate-700 hover:border-emerald-500/60 text-slate-200 hover:text-emerald-300 text-sm font-bold flex items-center justify-center space-x-2 transition shadow-md';
+        bottomText.textContent = 'Mark Chapter as Completed';
+      }
+
+      topBtn.onclick = () => toggleChapterRead(ch.id);
+      bottomBtn.onclick = () => toggleChapterRead(ch.id);
 
       // Render Continuous Document Content
       const container = document.getElementById('sections-container');
@@ -832,27 +1170,23 @@
 
       prevBtn.disabled = chIndex <= 0;
       prevBtn.className = chIndex <= 0 
-        ? 'flex-1 py-3.5 px-5 bg-slate-900/40 border border-slate-800/40 rounded-2xl font-semibold text-xs sm:text-sm text-slate-600 cursor-not-allowed flex items-center justify-center'
-        : 'flex-1 py-3.5 px-5 bg-slate-900 hover:bg-slate-800 active:bg-slate-700 border border-slate-800 rounded-2xl font-semibold text-xs sm:text-sm flex items-center justify-center text-slate-300 transition';
+        ? 'w-full sm:w-auto flex-1 py-3.5 px-5 bg-slate-900/40 border border-slate-800/40 rounded-2xl font-semibold text-xs sm:text-sm text-slate-600 cursor-not-allowed flex items-center justify-center'
+        : 'w-full sm:w-auto flex-1 py-3.5 px-5 bg-slate-900 hover:bg-slate-800 active:bg-slate-700 border border-slate-800 rounded-2xl font-semibold text-xs sm:text-sm flex items-center justify-center text-slate-300 transition';
 
       nextBtn.disabled = chIndex >= book.chapters.length - 1;
       nextBtn.className = chIndex >= book.chapters.length - 1
-        ? 'flex-1 py-3.5 px-5 bg-slate-900/40 border border-slate-800/40 rounded-2xl font-semibold text-xs sm:text-sm text-slate-600 cursor-not-allowed flex items-center justify-center'
-        : 'flex-1 py-3.5 px-5 bg-purple-600 hover:bg-purple-500 active:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-2xl flex items-center justify-center transition shadow-lg shadow-purple-600/20';
+        ? 'w-full sm:w-auto flex-1 py-3.5 px-5 bg-slate-900/40 border border-slate-800/40 rounded-2xl font-semibold text-xs sm:text-sm text-slate-600 cursor-not-allowed flex items-center justify-center'
+        : 'w-full sm:w-auto flex-1 py-3.5 px-5 bg-purple-600 hover:bg-purple-500 active:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-2xl flex items-center justify-center transition shadow-lg shadow-purple-600/20';
 
       prevBtn.onclick = () => {
         if (chIndex > 0) {
-          activeChapterId = book.chapters[chIndex - 1].id;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          renderReader();
+          openChapter(book.chapters[chIndex - 1].id);
         }
       };
 
       nextBtn.onclick = () => {
         if (chIndex < book.chapters.length - 1) {
-          activeChapterId = book.chapters[chIndex + 1].id;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          renderReader();
+          openChapter(book.chapters[chIndex + 1].id);
         }
       };
 
@@ -911,9 +1245,12 @@
         tabBtn.textContent = b.title;
         tabBtn.onclick = () => {
           activeBookId = b.id;
-          activeChapterId = b.chapters[0]?.id || null;
           renderDrawer();
-          renderReader();
+          if (activeChapterId) {
+            openChapter(b.chapters[0]?.id || null);
+          } else {
+            renderDirectory();
+          }
         };
         tabs.appendChild(tabBtn);
       });
@@ -922,6 +1259,8 @@
 
       book.chapters.forEach(ch => {
         const isCurrent = ch.id === activeChapterId;
+        const isRead = Boolean(userProgress.readChapters[ch.id]);
+
         const item = document.createElement('div');
         item.className = `p-3.5 rounded-xl border flex items-center justify-between transition cursor-pointer select-none ${
           isCurrent ? 'bg-purple-600/15 border-purple-500/60 text-purple-200' : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800 text-slate-300'
@@ -929,7 +1268,10 @@
 
         item.innerHTML = `
           <div class="min-w-0 flex-1 pr-2">
-            <div class="font-bold text-xs sm:text-sm truncate text-slate-100">${ch.title}</div>
+            <div class="font-bold text-xs sm:text-sm truncate text-slate-100 flex items-center">
+              ${isRead ? `<i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 mr-1.5 shrink-0"></i>` : ''}
+              <span class="truncate">${ch.title}</span>
+            </div>
             <div class="text-[11px] text-slate-400 mt-0.5 flex items-center space-x-2">
               <span>Chapter ${ch.chapterNumber}</span>
               <span>•</span>
@@ -942,9 +1284,7 @@
         `;
 
         item.onclick = () => {
-          activeChapterId = ch.id;
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-          renderReader();
+          openChapter(ch.id);
           document.getElementById('modal-decks').classList.add('hidden');
         };
 
@@ -960,8 +1300,16 @@
     };
     document.getElementById('btn-close-decks').onclick = () => document.getElementById('modal-decks').classList.add('hidden');
 
-    // Initialize Reader
-    renderReader();
+    // Handle Initial URL Hash Routing
+    const initialHash = window.location.hash.replace('#', '').trim();
+    const book = getActiveBook();
+    const initialChapter = book?.chapters.find(c => c.id === initialHash);
+
+    if (initialChapter) {
+      openChapter(initialChapter.id);
+    } else {
+      showDirectory();
+    }
   </script>
 </body>
 </html>
