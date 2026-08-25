@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>KetofolDoc | Anesthesia Chapter Summaries</title>
+  
+  <!-- Favicon & Touch Icon -->
+  <link rel="icon" type="image/svg+xml" href="logo.svg" />
+  <link rel="apple-touch-icon" href="logo.svg" />
+  
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body { -webkit-tap-highlight-color: transparent; }
+    .safe-top { padding-top: env(safe-area-inset-top); }
+    .safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans selection:bg-blue-600 selection:text-white">
+
+  <!-- Top Header -->
+  <header class="bg-slate-900/90 backdrop-blur border-b border-slate-800 sticky top-0 z-40 safe-top">
+    <div class="max-w-5xl mx-auto px-4 py-2 min-h-[3.75rem] flex items-center justify-between gap-3">
+      
+      <!-- Left: Navigation Drawer & Title -->
+      <div class="flex items-center space-x-2.5 min-w-0 flex-1">
+        <button id="btn-menu" class="p-2 text-slate-400 hover:text-white rounded-lg active:bg-slate-800 shrink-0" title="Chapters & Navigation">
+          <i data-lucide="layers" class="w-5 h-5"></i>
+        </button>
+        
+        <a href="https://ketofoldoc.com" title="Return to KetofolDoc Home" class="shrink-0 hover:opacity-80 transition">
+          <img src="logo.svg" alt="App Logo" class="w-8 h-8 rounded-lg border border-slate-700/60 object-contain" />
+        </a>
+
+        <div class="min-w-0 flex-1 flex flex-col justify-center">
+          <span id="header-book-title" class="text-[10px] font-bold uppercase tracking-wider text-blue-400 truncate leading-tight">
+            Miller's Anesthesia Summaries
+          </span>
+          <div class="flex items-center space-x-2 truncate">
+            <h1 id="header-chapter-title" class="font-bold text-xs sm:text-sm text-slate-100 truncate leading-snug">
+              Loading Chapter...
+            </h1>
+            <span class="text-slate-600 text-xs">•</span>
+            <p id="header-read-time" class="text-[11px] font-medium text-emerald-400 truncate leading-snug">
+              0 min read
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Search & Actions -->
+      <div class="flex items-center space-x-1 sm:space-x-2 shrink-0">
+        <button id="btn-search" class="p-2 text-slate-400 hover:text-blue-400 rounded-lg active:bg-slate-800 transition shrink-0" title="Search Summaries (Ctrl + K)">
+          <i data-lucide="search" class="w-5 h-5"></i>
+        </button>
+
+        <button id="btn-toc-toggle" class="p-2 text-slate-400 hover:text-emerald-400 rounded-lg active:bg-slate-800 transition shrink-0" title="Table of Contents">
+          <i data-lucide="list" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Reading Progress Bar -->
+    <div class="w-full bg-slate-800 h-1">
+      <div id="reading-progress-fill" class="bg-blue-500 h-1 w-0 transition-all duration-150"></div>
+    </div>
+  </header>
+
+  <!-- Main Reader Container -->
+  <main class="flex-1 max-w-4xl w-full mx-auto px-4 sm:px-6 py-8 pb-32">
+    
+    <!-- Empty State -->
+    <div id="view-empty" class="hidden my-auto text-center py-20 px-4">
+      <div class="w-16 h-16 bg-slate-800 text-slate-400 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-700">
+        <i data-lucide="book-open" class="w-8 h-8"></i>
+      </div>
+      <h2 class="text-xl font-bold text-slate-100 mb-2">No Chapter Selected</h2>
+      <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">Select a book chapter from the navigation menu to begin reading.</p>
+    </div>
+
+    <!-- Chapter Header Banner -->
+    <div id="chapter-banner" class="mb-8 pb-6 border-b border-slate-800/80">
+      <div class="flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-blue-400 mb-2">
+        <span id="banner-book-badge" class="px-2.5 py-0.5 rounded-full bg-blue-950/70 border border-blue-800/60">Miller's Anesthesia</span>
+        <span class="text-slate-600">•</span>
+        <span id="banner-chapter-number" class="text-slate-400">Chapter 1</span>
+      </div>
+      <h1 id="chapter-headline" class="text-2xl sm:text-4xl font-extrabold text-slate-100 tracking-tight leading-snug mb-3"></h1>
+      <div class="flex items-center space-x-4 text-xs text-slate-400">
+        <span id="chapter-read-pill" class="inline-flex items-center"><i data-lucide="clock" class="w-3.5 h-3.5 mr-1 text-emerald-400"></i> <span id="chapter-read-time-val">10 min read</span></span>
+        <span id="chapter-sections-count" class="inline-flex items-center"><i data-lucide="layers" class="w-3.5 h-3.5 mr-1 text-blue-400"></i> <span id="chapter-sections-count-val">5 Sections</span></span>
+      </div>
+    </div>
+
+    <!-- Summary Sections Content -->
+    <div id="sections-container" class="space-y-10"></div>
+
+    <!-- Bottom Chapter Navigation -->
+    <div class="mt-16 pt-8 border-t border-slate-800/80 flex items-center justify-between gap-4">
+      <button id="btn-prev-chapter" class="flex-1 py-3 px-4 bg-slate-900 hover:bg-slate-800 active:bg-slate-700 border border-slate-800 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center text-slate-300 transition">
+        <i data-lucide="chevron-left" class="w-4 h-4 mr-1.5"></i> Previous Chapter
+      </button>
+      <button id="btn-next-chapter" class="flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center transition shadow-lg shadow-blue-600/20">
+        Next Chapter <i data-lucide="chevron-right" class="w-4 h-4 ml-1.5"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Global Full-Text Search Modal -->
+  <div id="modal-search" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-start justify-center p-4 pt-12 sm:pt-20">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[80vh] overflow-hidden">
+      
+      <div class="p-4 border-b border-slate-800 flex items-center space-x-3 bg-slate-900/90">
+        <i data-lucide="search" class="w-5 h-5 text-slate-400 shrink-0"></i>
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search keywords, clinical trials, pharmacology, or concepts..." 
+          class="w-full bg-transparent text-slate-100 placeholder-slate-500 text-sm focus:outline-none"
+          autocomplete="off"
+        />
+        <button id="btn-close-search" class="p-1 text-slate-400 hover:text-white rounded-lg active:bg-slate-800 shrink-0">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="search-results-list" class="p-4 overflow-y-auto space-y-2.5 flex-1 divide-y divide-slate-800/40">
+        <div class="text-xs text-slate-500 text-center py-8">
+          Type at least 2 characters to search across all summary chapters...
+        </div>
+      </div>
+      
+      <div class="px-4 py-2 bg-slate-950/50 border-t border-slate-800/60 flex items-center justify-between text-[11px] text-slate-500">
+        <span id="search-count-badge">0 results found</span>
+        <span>Press <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-300">ESC</kbd> to close</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Book & Chapter Drawer + Ecosystem Hub Modal -->
+  <div id="modal-decks" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full sm:max-w-lg rounded-t-3xl sm:rounded-2xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+      
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/90 shrink-0">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="compass" class="w-5 h-5 text-blue-400"></i>
+          <div>
+            <h3 class="font-bold text-slate-100 text-sm sm:text-base">Navigation & Books</h3>
+            <p class="text-[11px] text-slate-400">Switch platforms or select chapter summaries</p>
+          </div>
+        </div>
+        <button id="btn-close-decks" class="p-1.5 text-slate-400 hover:text-white rounded-lg active:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="overflow-y-auto p-4 space-y-4 flex-1">
+        
+        <!-- 🌐 Ecosystem Hub Switcher Section -->
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 block">
+            KetofolDoc Platforms
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <a href="https://ahmed.ketofoldoc.com" class="p-2.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-blue-500/50 flex items-center justify-between transition group">
+              <div class="flex items-center space-x-2 min-w-0">
+                <i data-lucide="award" class="w-4 h-4 text-blue-400 shrink-0"></i>
+                <span class="text-xs font-medium text-slate-200 group-hover:text-blue-300 transition truncate">Saudi Board QB</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-blue-400 transition shrink-0"></i>
+            </a>
+
+            <a href="https://1000qs.ketofoldoc.com" class="p-2.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-emerald-500/50 flex items-center justify-between transition group">
+              <div class="flex items-center space-x-2 min-w-0">
+                <i data-lucide="book-open" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span class="text-xs font-medium text-slate-200 group-hover:text-emerald-300 transition truncate">1000 Questions</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-500 group-hover:text-emerald-400 transition shrink-0"></i>
+            </a>
+          </div>
+
+          <a href="https://ketofoldoc.com" class="mt-2 w-full p-2 rounded-xl bg-slate-800/40 hover:bg-slate-800 border border-slate-700/40 text-slate-300 hover:text-white text-xs font-medium flex items-center justify-center space-x-2 transition">
+            <i data-lucide="home" class="w-3.5 h-3.5 text-slate-400"></i>
+            <span>Return to KetofolDoc Home Portal</span>
+          </a>
+        </div>
+
+        <div class="border-t border-slate-800/80"></div>
+
+        <!-- 📚 Books Switcher (If multiple textbooks exist) -->
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2 block">
+            Textbook Library
+          </span>
+          <div id="book-tabs" class="flex space-x-2 overflow-x-auto pb-1"></div>
+        </div>
+
+        <!-- 📖 Chapter Selection List -->
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              Chapters
+            </span>
+            <span id="chapters-available-count" class="text-[10px] text-slate-500"></span>
+          </div>
+          <div id="drawer-chapter-list" class="space-y-1.5"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- In-Chapter Table of Contents Drawer Modal -->
+  <div id="modal-toc" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-slate-900 border border-slate-800 w-full sm:max-w-md rounded-t-3xl sm:rounded-2xl max-h-[80vh] flex flex-col overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between bg-slate-900/90">
+        <div class="flex items-center space-x-2">
+          <i data-lucide="list" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="font-bold text-slate-100 text-sm">Table of Contents</h3>
+        </div>
+        <button id="btn-close-toc" class="p-1.5 text-slate-400 hover:text-white rounded-lg active:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div id="toc-list" class="p-4 overflow-y-auto space-y-2 flex-1"></div>
+    </div>
+  </div>
+
+  <!-- ES6 Logic -->
+  <script type="module">
+    import { allBooks } from './books/index.js';
+
+    // 🛠️ Markdown Formatter
+    function formatMarkdown(text) {
+      if (!text) return '';
+      return text
+        .replace(/^### (.*$)/gim, '<h4 class="text-base font-bold text-slate-100 mt-4 mb-1">$1</h4>')
+        .replace(/^## (.*$)/gim, '<h3 class="text-lg font-bold text-slate-100 mt-5 mb-2">$1</h3>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-slate-100">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em class="italic text-slate-300">$1</em>')
+        .replace(/^-\s(.*$)/gim, '<li class="ml-4 list-disc text-slate-300 my-1 leading-relaxed">$1</li>')
+        .replace(/^\d+\.\s(.*$)/gim, '<li class="ml-4 list-decimal text-slate-300 my-1 leading-relaxed">$1</li>')
+        .replace(/\n\n/g, '<p class="my-3 leading-relaxed text-slate-300"></p>')
+        .replace(/\n/g, '<br/>');
+    }
+
+    let activeBookId = allBooks[0]?.id || 'miller';
+    let activeChapterId = allBooks[0]?.chapters[0]?.id || null;
+
+    function getActiveBook() {
+      return allBooks.find(b => b.id === activeBookId) || allBooks[0];
+    }
+
+    function getActiveChapter() {
+      const book = getActiveBook();
+      if (!book) return null;
+      return book.chapters.find(c => c.id === activeChapterId) || book.chapters[0];
+    }
+
+    // Scroll Progress Tracker
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      document.getElementById('reading-progress-fill').style.width = `${scrolled}%`;
+    });
+
+    // --- Search Engine ---
+    function searchAllSummaries(query) {
+      const clean = query.trim().toLowerCase();
+      if (clean.length < 2) return [];
+
+      const results = [];
+      allBooks.forEach(book => {
+        book.chapters.forEach(ch => {
+          (ch.sections || []).forEach((sec, idx) => {
+            let score = 0;
+            let matchText = '';
+
+            if (sec.title && sec.title.toLowerCase().includes(clean)) {
+              score += 10;
+              matchText = sec.title;
+            } else if (sec.content && sec.content.toLowerCase().includes(clean)) {
+              score += 5;
+              matchText = sec.content;
+            }
+
+            if (score > 0) {
+              results.push({
+                bookId: book.id,
+                bookTitle: book.title,
+                chapterId: ch.id,
+                chapterTitle: ch.title,
+                sectionTitle: sec.title,
+                sectionIndex: idx,
+                snippet: matchText,
+                score
+              });
+            }
+          });
+        });
+      });
+
+      return results.sort((a, b) => b.score - a.score);
+    }
+
+    function highlightKeyword(text, query) {
+      if (!query || !text) return text || '';
+      const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escaped})`, 'gi');
+      return text.replace(regex, '<span class="bg-blue-500/30 text-blue-200 font-semibold px-0.5 rounded">$1</span>');
+    }
+
+    function renderSearchResults(query) {
+      const list = document.getElementById('search-results-list');
+      const badge = document.getElementById('search-count-badge');
+      const results = searchAllSummaries(query);
+      list.innerHTML = '';
+
+      if (query.trim().length < 2) {
+        list.innerHTML = `<div class="text-xs text-slate-500 text-center py-8">Type at least 2 characters to search across all summary chapters...</div>`;
+        badge.textContent = '0 results found';
+        return;
+      }
+
+      if (results.length === 0) {
+        list.innerHTML = `<div class="text-xs text-amber-400/80 text-center py-8">No matching summaries found for "<b>${query}</b>".</div>`;
+        badge.textContent = '0 results found';
+        return;
+      }
+
+      badge.textContent = `${results.length} result${results.length > 1 ? 's' : ''} found`;
+
+      results.forEach(res => {
+        const item = document.createElement('div');
+        item.className = 'pt-2.5 pb-2.5 px-3 rounded-xl hover:bg-slate-800/60 cursor-pointer transition flex flex-col space-y-1';
+        item.innerHTML = `
+          <div class="flex items-center justify-between text-xs">
+            <span class="font-bold text-blue-400 truncate">${res.chapterTitle}</span>
+            <span class="text-[10px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded border border-slate-700/60 shrink-0">${res.bookTitle}</span>
+          </div>
+          <div class="text-xs font-semibold text-slate-300 truncate">${res.sectionTitle}</div>
+          <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+            ${highlightKeyword(res.snippet, query)}
+          </p>
+        `;
+
+        item.onclick = () => {
+          activeBookId = res.bookId;
+          activeChapterId = res.chapterId;
+          renderReader();
+          document.getElementById('modal-search').classList.add('hidden');
+          
+          setTimeout(() => {
+            const secEl = document.getElementById(`section-${res.sectionIndex}`);
+            if (secEl) secEl.scrollIntoView({ behavior: 'smooth' });
+          }, 150);
+        };
+
+        list.appendChild(item);
+      });
+    }
+
+    // Search Handlers
+    const searchModal = document.getElementById('modal-search');
+    const searchInput = document.getElementById('search-input');
+    document.getElementById('btn-search').onclick = () => {
+      searchModal.classList.remove('hidden');
+      searchInput.value = '';
+      searchInput.focus();
+      renderSearchResults('');
+      lucide.createIcons();
+    };
+    document.getElementById('btn-close-search').onclick = () => searchModal.classList.add('hidden');
+    searchInput.addEventListener('input', (e) => renderSearchResults(e.target.value));
+
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        searchModal.classList.remove('hidden');
+        searchInput.focus();
+      }
+      if (e.key === 'Escape' && !searchModal.classList.contains('hidden')) {
+        searchModal.classList.add('hidden');
+      }
+    });
+
+    // --- Reader Renderer ---
+    function renderReader() {
+      lucide.createIcons();
+      const book = getActiveBook();
+      const ch = getActiveChapter();
+
+      if (!book || !ch) {
+        document.getElementById('view-empty').classList.remove('hidden');
+        document.getElementById('chapter-banner').classList.add('hidden');
+        document.getElementById('sections-container').classList.add('hidden');
+        return;
+      }
+
+      document.getElementById('view-empty').classList.add('hidden');
+      document.getElementById('chapter-banner').classList.remove('hidden');
+      document.getElementById('sections-container').classList.remove('hidden');
+
+      // Update Header
+      document.getElementById('header-book-title').textContent = `${book.title} Summaries`;
+      document.getElementById('header-chapter-title').textContent = ch.title;
+      document.getElementById('header-read-time').textContent = `${ch.readTimeMinutes || 8} min read`;
+
+      // Update Banner
+      document.getElementById('banner-book-badge').textContent = book.title;
+      document.getElementById('banner-chapter-number').textContent = `Chapter ${ch.chapterNumber || ''}`;
+      document.getElementById('chapter-headline').textContent = ch.title;
+      document.getElementById('chapter-read-time-val').textContent = `${ch.readTimeMinutes || 8} min read`;
+      document.getElementById('chapter-sections-count-val').textContent = `${(ch.sections || []).length} Sections`;
+
+      // Render Sections
+      const container = document.getElementById('sections-container');
+      container.innerHTML = '';
+
+      (ch.sections || []).forEach((sec, idx) => {
+        const secDiv = document.createElement('article');
+        secDiv.id = `section-${idx}`;
+        secDiv.className = 'bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 sm:p-7 shadow-sm scroll-mt-24';
+
+        secDiv.innerHTML = `
+          <div class="flex items-center space-x-2 text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">
+            <span>Section ${idx + 1}</span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-100 mb-4">${sec.title}</h2>
+          <div class="text-sm sm:text-base leading-relaxed text-slate-300">
+            ${formatMarkdown(sec.content)}
+          </div>
+        `;
+        container.appendChild(secDiv);
+      });
+
+      // Chapter Next/Prev Buttons
+      const chIndex = book.chapters.findIndex(c => c.id === ch.id);
+      const prevBtn = document.getElementById('btn-prev-chapter');
+      const nextBtn = document.getElementById('btn-next-chapter');
+
+      prevBtn.disabled = chIndex <= 0;
+      prevBtn.className = chIndex <= 0 
+        ? 'flex-1 py-3 px-4 bg-slate-900/40 border border-slate-800/40 rounded-xl font-semibold text-xs sm:text-sm text-slate-600 cursor-not-allowed flex items-center justify-center'
+        : 'flex-1 py-3 px-4 bg-slate-900 hover:bg-slate-800 active:bg-slate-700 border border-slate-800 rounded-xl font-semibold text-xs sm:text-sm flex items-center justify-center text-slate-300 transition';
+
+      nextBtn.disabled = chIndex >= book.chapters.length - 1;
+      nextBtn.className = chIndex >= book.chapters.length - 1
+        ? 'flex-1 py-3 px-4 bg-slate-900/40 border border-slate-800/40 rounded-xl font-semibold text-xs sm:text-sm text-slate-600 cursor-not-allowed flex items-center justify-center'
+        : 'flex-1 py-3 px-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-semibold text-xs sm:text-sm rounded-xl flex items-center justify-center transition shadow-lg shadow-blue-600/20';
+
+      prevBtn.onclick = () => {
+        if (chIndex > 0) {
+          activeChapterId = book.chapters[chIndex - 1].id;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          renderReader();
+        }
+      };
+
+      nextBtn.onclick = () => {
+        if (chIndex < book.chapters.length - 1) {
+          activeChapterId = book.chapters[chIndex + 1].id;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          renderReader();
+        }
+      };
+
+      lucide.createIcons();
+    }
+
+    // --- Table of Contents Drawer ---
+    function renderTOC() {
+      const ch = getActiveChapter();
+      const list = document.getElementById('toc-list');
+      list.innerHTML = '';
+      if (!ch) return;
+
+      (ch.sections || []).forEach((sec, idx) => {
+        const item = document.createElement('button');
+        item.className = 'w-full text-left p-3 rounded-xl hover:bg-slate-800/80 border border-transparent hover:border-slate-700/60 transition flex items-center justify-between text-xs text-slate-300';
+        item.innerHTML = `
+          <div class="flex items-center space-x-2.5 min-w-0 pr-2">
+            <span class="font-bold text-slate-500 text-[10px] bg-slate-800 px-1.5 py-0.5 rounded">#${idx + 1}</span>
+            <span class="truncate font-medium">${sec.title}</span>
+          </div>
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 text-slate-600 shrink-0"></i>
+        `;
+
+        item.onclick = () => {
+          document.getElementById('modal-toc').classList.add('hidden');
+          const secEl = document.getElementById(`section-${idx}`);
+          if (secEl) secEl.scrollIntoView({ behavior: 'smooth' });
+        };
+        list.appendChild(item);
+      });
+      lucide.createIcons();
+    }
+
+    document.getElementById('btn-toc-toggle').onclick = () => {
+      renderTOC();
+      document.getElementById('modal-toc').classList.remove('hidden');
+    };
+    document.getElementById('btn-close-toc').onclick = () => document.getElementById('modal-toc').classList.add('hidden');
+
+    // --- Books & Chapter Navigation Modal ---
+    function renderDrawer() {
+      const book = getActiveBook();
+      const tabs = document.getElementById('book-tabs');
+      const list = document.getElementById('drawer-chapter-list');
+      
+      tabs.innerHTML = '';
+      list.innerHTML = '';
+
+      allBooks.forEach(b => {
+        const tabBtn = document.createElement('button');
+        const isActive = b.id === activeBookId;
+        tabBtn.className = `px-3 py-1.5 rounded-lg text-xs font-bold transition shrink-0 ${
+          isActive ? 'bg-blue-600 text-white shadow-md shadow-blue-600/20' : 'bg-slate-800 text-slate-400 hover:text-slate-200'
+        }`;
+        tabBtn.textContent = b.title;
+        tabBtn.onclick = () => {
+          activeBookId = b.id;
+          activeChapterId = b.chapters[0]?.id || null;
+          renderDrawer();
+          renderReader();
+        };
+        tabs.appendChild(tabBtn);
+      });
+
+      document.getElementById('chapters-available-count').textContent = `${book.chapters.length} Chapters`;
+
+      book.chapters.forEach(ch => {
+        const isCurrent = ch.id === activeChapterId;
+        const item = document.createElement('div');
+        item.className = `p-3 rounded-xl border flex items-center justify-between transition cursor-pointer select-none ${
+          isCurrent ? 'bg-blue-600/15 border-blue-500/60 text-blue-200' : 'bg-slate-800/40 border-slate-700/50 hover:bg-slate-800 text-slate-300'
+        }`;
+
+        item.innerHTML = `
+          <div class="min-w-0 flex-1 pr-2">
+            <div class="font-bold text-xs sm:text-sm truncate text-slate-100">${ch.title}</div>
+            <div class="text-[11px] text-slate-400 mt-0.5 flex items-center space-x-2">
+              <span>Chapter ${ch.chapterNumber}</span>
+              <span>•</span>
+              <span>${ch.readTimeMinutes || 8} min</span>
+            </div>
+          </div>
+          <div class="shrink-0">
+            ${isCurrent ? `<span class="px-2 py-0.5 text-[10px] font-bold uppercase bg-blue-500/20 border border-blue-400/40 text-blue-300 rounded-md">Reading</span>` : `<i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>`}
+          </div>
+        `;
+
+        item.onclick = () => {
+          activeChapterId = ch.id;
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          renderReader();
+          document.getElementById('modal-decks').classList.add('hidden');
+        };
+
+        list.appendChild(item);
+      });
+
+      lucide.createIcons();
+    }
+
+    document.getElementById('btn-menu').onclick = () => {
+      renderDrawer();
+      document.getElementById('modal-decks').classList.remove('hidden');
+    };
+    document.getElementById('btn-close-decks').onclick = () => document.getElementById('modal-decks').classList.add('hidden');
+
+    // Initialize Reader
+    renderReader();
+  </script>
+</body>
+</html>
