@@ -111,7 +111,7 @@
           </div>
           <div>
             <h2 class="text-lg sm:text-xl font-bold text-slate-100">Chapter Recall Practice</h2>
-            <p class="text-xs text-slate-400">Test your retention with board-style questions</p>
+            <p class="text-xs text-slate-400">Test your retention with topic-matched board questions</p>
           </div>
         </div>
         <span id="quiz-count-badge" class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-semibold text-emerald-400">
@@ -276,6 +276,63 @@
     } catch (e) {
       console.info("Decks not found or optional; operating in summary-only mode.");
     }
+
+    // 🗺️ Explicit Topic & Keyword Mapping Table for Miller Chapters
+    const CHAPTER_TOPIC_MAP = {
+      10: { topic: "neuro", keywords: ["cerebral", "cbf", "icp", "brain", "autoregulation", "cpp"] },
+      11: { topic: "pharmacology", keywords: ["neuromuscular", "acetylcholine", "nmj", "receptor"] },
+      12: { topic: "respiratory", keywords: ["respiratory", "hypoxia", "shunt", "dead space", "ventilation", "compliance"] },
+      13: { topic: "cardiac", keywords: ["cardiac", "myocardial", "preload", "afterload", "coronary", "contractility"] },
+      14: { topic: "general", keywords: ["hepatic", "liver", "gastrointestinal", "stomach", "aspiration"] },
+      15: { topic: "renal", keywords: ["renal", "gfr", "kidney", "nephron", "creatinine", "clearance"] },
+      16: { topic: "pharmacology", keywords: ["pharmacokinetics", "pharmacodynamics", "half-life", "clearance", "volume of distribution"] },
+      17: { topic: "pharmacology", keywords: ["inhaled", "mac", "minimum alveolar", "volatile", "sevoflurane", "isoflurane"] },
+      18: { topic: "pharmacology", keywords: ["uptake", "distribution", "blood-gas", "solubility", "second gas"] },
+      19: { topic: "pharmacology", keywords: ["pulmonary pharmacology", "bronchodilation", "hpv", "hypoxic pulmonary"] },
+      20: { topic: "equipment", keywords: ["vaporizer", "machine", "circle system", "scavenging", "pipeline"] },
+      21: { topic: "pharmacology", keywords: ["propofol", "etomidate", "ketamine", "barbiturate", "intravenous induction"] },
+      22: { topic: "pharmacology", keywords: ["opioid", "fentanyl", "morphine", "remifentanil", "sufentanil", "mu receptor"] },
+      23: { topic: "equipment", keywords: ["infusion", "tiva", "target controlled", "syringe pump"] },
+      24: { topic: "pharmacology", keywords: ["succinylcholine", "rocuronium", "vecuronium", "sugammadex", "neostigmine", "paralytic"] },
+      25: { topic: "regional", keywords: ["bupivacaine", "lidocaine", "ropivacaine", "local anesthetic", "last", "toxicity"] },
+      27: { topic: "safety", keywords: ["risk", "mortality", "safety", "morbidity", "closed claims"] },
+      28: { topic: "preop", keywords: ["preoperative", "evaluation", "assessment", "mallampati", "asa class"] },
+      29: { topic: "general", keywords: ["concurrent", "diabetes", "hypertension", "thyroid", "pacemaker"] },
+      30: { topic: "safety", keywords: ["positioning", "nerve injury", "prone", "lithotomy", "brachial plexus"] },
+      31: { topic: "neuro", keywords: ["malignant hyperthermia", "muscular dystrophy", "myasthenia", "genetic", "dantrolene"] },
+      32: { topic: "monitoring", keywords: ["arterial line", "central venous", "cardiac output", "pulmonary artery catheter"] },
+      33: { topic: "cardiac", keywords: ["echo", "echocardiography", "pocus", "ultrasound", "tee", "tte"] },
+      34: { topic: "cardiac", keywords: ["pacemaker", "icd", "defibrillator", "cied", "magnet"] },
+      35: { topic: "monitoring", keywords: ["eeg", "evoked potentials", "ssep", "mep", "bis", "monitoring"] },
+      36: { topic: "monitoring", keywords: ["depth of anesthesia", "bis", "entropy", "awareness", "recall"] },
+      37: { topic: "monitoring", keywords: ["capnography", "etco2", "pulse oximeter", "oxygenation", "spirometry"] },
+      38: { topic: "renal", keywords: ["acute kidney injury", "aki", "ischemia", "nephrotoxic", "dialysis"] },
+      39: { topic: "monitoring", keywords: ["train of four", "tof", "neuromuscular monitoring", "twitch", "tetanic"] },
+      40: { topic: "airway", keywords: ["difficult airway", "intubation", "laryngoscopy", "cricothyrotomy", "lma", "videolaryngoscope"] },
+      41: { topic: "regional", keywords: ["spinal", "epidural", "caudal", "subarachnoid", "dural puncture", "pdph", "neuraxial"] },
+      42: { topic: "regional", keywords: ["peripheral nerve block", "ultrasound guided", "brachial plexus", "femoral", "sciatic", "interscalene"] },
+      43: { topic: "fluids", keywords: ["fluid therapy", "colloid", "crystalloid", "electrolyte", "hyponatremia", "hyperkalemia"] },
+      44: { topic: "fluids", keywords: ["acid-base", "acidosis", "alkalosis", "base excess", "anion gap", "abg"] },
+      45: { topic: "hematology", keywords: ["transfusion", "prbc", "ffp", "platelets", "cryoprecipitate", "massive transfusion"] },
+      46: { topic: "hematology", keywords: ["coagulation", "teg", "rotem", "platelet", "anticoagulant", "heparin", "thrombosis"] },
+      47: { topic: "pain", keywords: ["chronic pain", "neuropathic", "crps", "epidural steroid", "opioid tolerance"] },
+      49: { topic: "thoracic", keywords: ["thoracic", "one-lung ventilation", "double lumen", "bronchial blocker", "thoracotomy"] },
+      50: { topic: "cardiac", keywords: ["cardiac surgery", "cardiopulmonary bypass", "cpb", "coronary artery bypass", "valve replacement"] },
+      51: { topic: "cardiac", keywords: ["arrhythmia", "atrial fibrillation", "ventricular tachycardia", "heart block", "antiarrhythmic"] },
+      52: { topic: "vascular", keywords: ["aortic aneurysm", "cross-clamp", "carotid endarterectomy", "cea", "vascular"] },
+      53: { topic: "neuro", keywords: ["craniotomy", "aneurysm", "intracranial", "sitting position", "venous air embolism"] },
+      54: { topic: "general", keywords: ["bariatric", "obesity", "bmi", "osa", "gastric bypass"] },
+      55: { topic: "renal", keywords: ["urology", "turp", "kidney transplant", "cystoscopy", "lithotripsy"] },
+      58: { topic: "obstetrics", keywords: ["obstetric", "preeclampsia", "cesarean", "labor", "uterine", "placenta", "epidural", "fetal", "magnesium"] },
+      59: { topic: "obstetrics", keywords: ["fetal surgery", "fetoscopic", "exit procedure", "myelomeningocele"] },
+      60: { topic: "orthopedic", keywords: ["orthopedic", "arthroplasty", "fat embolism", "bone cement", "tourniquet", "hip fracture"] },
+      62: { topic: "trauma", keywords: ["trauma", "hemorrhagic shock", "resuscitation", "burns", "cervical spine"] },
+      72: { topic: "pediatrics", keywords: ["pediatric", "neonatal", "infant", "child", "laryngospasm", "croup"] },
+      73: { topic: "pediatrics", keywords: ["pediatric cardiac", "congenital heart", "tetralogy", "vsd", "asd", "shunt"] },
+      74: { topic: "pediatrics", keywords: ["pediatric regional", "caudal", "ilioinguinal", "penile block"] },
+      75: { topic: "pediatrics", keywords: ["pediatric icu", "neonatal resuscitation", "apgar", "pals"] },
+      80: { topic: "neuro", keywords: ["neurocritical", "traumatic brain injury", "tbi", "stroke", "brain death", "subarachnoid hemorrhage"] }
+    };
 
     // 🛠️ Markdown Formatter
     function formatMarkdown(text) {
@@ -446,36 +503,73 @@
       }
     });
 
-    // --- Interactive Quiz Cards Renderer ---
+    // 🎯 Interactive Questions Engine (Relevance Scorer)
     function renderInteractiveQuestions(chapterNumber) {
       const container = document.getElementById('quiz-cards-container');
       const badge = document.getElementById('quiz-count-badge');
       const section = document.getElementById('chapter-quiz-section');
       container.innerHTML = '';
 
-      // Find matching question chapter or deck
-      let matchingDeck = questionChapters.find(d => {
-        const idNum = parseInt(String(d.id || '').replace(/\D/g, ''), 10);
-        return idNum === chapterNumber;
+      const mapping = CHAPTER_TOPIC_MAP[chapterNumber] || { topic: "general", keywords: [] };
+      const allAvailableQuestions = [];
+
+      // Pool all questions from imported question decks
+      questionChapters.forEach(deck => {
+        (deck.questions || []).forEach(q => {
+          allAvailableQuestions.push({
+            ...q,
+            _deckTitle: deck.title || "Question Bank"
+          });
+        });
       });
 
-      // Fallback: pick deck modulo length if no direct match
-      if (!matchingDeck && questionChapters.length > 0) {
-        const fallbackIdx = (chapterNumber - 1) % questionChapters.length;
-        matchingDeck = questionChapters[fallbackIdx];
+      if (allAvailableQuestions.length === 0) {
+        section.classList.add('hidden');
+        return;
       }
 
-      if (!matchingDeck || !matchingDeck.questions || matchingDeck.questions.length === 0) {
+      // Score questions based on chapter keywords
+      const scoredQuestions = allAvailableQuestions.map(q => {
+        let score = 0;
+        const fullContent = `${q.stem || ''} ${q.explanation || ''} ${Object.values(q.options || {}).join(' ')}`.toLowerCase();
+        
+        mapping.keywords.forEach(kw => {
+          if (fullContent.includes(kw.toLowerCase())) {
+            score += 5;
+          }
+        });
+
+        return { ...q, _relevanceScore: score };
+      });
+
+      // Filter questions with matching score, sort by relevance, and take top 4
+      let relevantQuestions = scoredQuestions
+        .filter(q => q._relevanceScore > 0)
+        .sort((a, b) => b._relevanceScore - a._relevanceScore)
+        .slice(0, 4);
+
+      // Fallback: If no direct keyword match, grab top questions from deck matching topic title
+      if (relevantQuestions.length === 0) {
+        const matchingDeck = questionChapters.find(d => 
+          (d.title || '').toLowerCase().includes(mapping.topic)
+        );
+        if (matchingDeck && matchingDeck.questions) {
+          relevantQuestions = matchingDeck.questions.slice(0, 4).map(q => ({
+            ...q,
+            _deckTitle: matchingDeck.title
+          }));
+        }
+      }
+
+      if (relevantQuestions.length === 0) {
         section.classList.add('hidden');
         return;
       }
 
       section.classList.remove('hidden');
-      // Limit to 4 high-yield questions per summary chapter
-      const questionsToDisplay = matchingDeck.questions.slice(0, 4);
-      badge.textContent = `${questionsToDisplay.length} Questions Available`;
+      badge.textContent = `${relevantQuestions.length} High-Yield Questions`;
 
-      questionsToDisplay.forEach((q, qIndex) => {
+      relevantQuestions.forEach((q, qIndex) => {
         const cardKey = `ch${chapterNumber}_q${qIndex}`;
         const selectedAns = userProgress[cardKey];
         const isRevealed = Boolean(selectedAns);
@@ -483,22 +577,19 @@
         const card = document.createElement('div');
         card.className = 'bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-6 shadow-sm';
 
-        // Stem
         let cardHtml = `
           <div class="flex items-center justify-between text-xs font-semibold text-slate-400 mb-3">
-            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60">Question ${qIndex + 1}</span>
-            <span class="text-[11px] text-slate-500">${matchingDeck.title || 'Topic Review'}</span>
+            <span class="px-2.5 py-0.5 rounded bg-slate-800 text-purple-300 border border-slate-700/60 font-bold">Question ${qIndex + 1}</span>
+            <span class="text-[11px] text-slate-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">${q._deckTitle}</span>
           </div>
           <p class="text-sm sm:text-base font-medium text-slate-100 leading-relaxed mb-4">${q.stem}</p>
         `;
 
-        // Optional Stem Image
         if (q.image) {
           const cleanPath = q.image.startsWith('/') ? q.image.slice(1) : q.image;
           cardHtml += `<img src="${cleanPath}" class="max-h-60 mx-auto rounded-xl border border-slate-700 bg-white/5 p-1 mb-4" />`;
         }
 
-        // Options List
         cardHtml += `<div class="space-y-2.5 options-wrapper">`;
         Object.entries(q.options || {}).forEach(([letter, text]) => {
           let btnClass = 'w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm font-medium transition flex items-start space-x-3 ';
@@ -519,7 +610,6 @@
         });
         cardHtml += `</div>`;
 
-        // Explanation Box
         if (isRevealed) {
           cardHtml += `
             <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-300 leading-relaxed bg-slate-950/50 p-4 rounded-xl">
@@ -533,7 +623,6 @@
 
         card.innerHTML = cardHtml;
 
-        // Attach Click Handlers
         card.querySelectorAll('.options-wrapper button').forEach(btn => {
           btn.onclick = () => {
             const letter = btn.getAttribute('data-letter');
