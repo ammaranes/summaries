@@ -214,14 +214,14 @@
         Textbook Chapter Summaries
       </h1>
       <p class="text-sm sm:text-base text-slate-400 leading-relaxed max-w-2xl mx-auto mb-6">
-        High-yield structured summaries, clinical pearls, and cloud-synced chapter recall practice.
+        High-yield structured summaries with cross-platform Spaced Repetition sync connected directly to your question banks.
       </p>
 
       <!-- Overall Reading Progress Dashboard -->
       <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 max-w-md mx-auto shadow-sm">
         <div class="flex items-center justify-between text-xs font-semibold mb-2">
           <span class="text-slate-400 flex items-center">
-            <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5 text-emerald-400"></i> Overall Progress
+            <i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1.5 text-emerald-400"></i> Overall Reading Progress
           </span>
           <span id="overall-progress-text" class="text-purple-300 font-bold">0 / 0 Completed</span>
         </div>
@@ -281,7 +281,7 @@
       <div id="sections-container" class="space-y-12"></div>
     </article>
 
-    <!-- 🎯 Interactive Practice Questions Section (Dual Question Bank Engine) -->
+    <!-- 🎯 Interactive Practice Questions Section (Dual Question Bank SRS Engine) -->
     <section id="chapter-quiz-section" class="mt-16 pt-12 border-t-2 border-slate-800">
       <div class="flex items-center justify-between mb-8">
         <div class="flex items-center space-x-3">
@@ -290,7 +290,7 @@
           </div>
           <div>
             <h2 class="text-lg sm:text-2xl font-bold text-slate-100">Chapter Recall Practice</h2>
-            <p class="text-xs sm:text-sm text-slate-400">High-yield questions curated from Saudi Board QB & 1000 Questions</p>
+            <p class="text-xs sm:text-sm text-slate-400">Spaced repetition reviews synced live with Saudi Board QB & 1000 Questions</p>
           </div>
         </div>
         <span id="quiz-count-badge" class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-lg text-xs font-semibold text-purple-400">
@@ -459,7 +459,7 @@
     </div>
   </div>
 
-  <!-- ES6 Application Logic + Firebase Sync Engine -->
+  <!-- ES6 Application Logic + Cross-Platform SM-2 SRS Sync Engine -->
   <script type="module">
     import { allBooks } from './books/index.js';
 
@@ -468,7 +468,7 @@
     import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js';
     import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
 
-    // 🔑 Paste your KetofolDoc Firebase credentials below
+    // 🔑 KetofolDoc Firebase Configuration
     const firebaseConfig = {
       apiKey: "YOUR_API_KEY",
       authDomain: "ketofoldoc.firebaseapp.com",
@@ -489,7 +489,7 @@
     } catch (e) {
       console.warn("Firebase not configured; running in local storage mode.");
     }
-    
+
     // Dynamic Multi-Bank Loader (Saudi Board QB & 1000 Questions)
     let questionChapters = [];
     try {
@@ -497,13 +497,164 @@
       if (imported.allQuestionDecks) {
         questionChapters = imported.allQuestionDecks;
       } else {
-        const saudi = (imported.allDecks || []).map(d => ({ ...d, sourceName: 'Saudi Board QB', sourceBadgeColor: 'blue' }));
-        const thousand = (imported.allChapters || []).map(d => ({ ...d, sourceName: '1000 Questions', sourceBadgeColor: 'emerald' }));
+        const saudi = (imported.allDecks || []).map(d => ({ ...d, sourceName: 'Saudi Board QB', sourceKey: 'saudi_board_progress', sourceBadgeColor: 'blue' }));
+        const thousand = (imported.allChapters || []).map(d => ({ ...d, sourceName: '1000 Questions', sourceKey: 'thousand_qs_progress', sourceBadgeColor: 'emerald' }));
         questionChapters = [...saudi, ...thousand];
       }
     } catch (e) {
       console.info("Question decks not found or optional; operating in summary-only mode.");
     }
+
+    // 🧠 SM-2 Spaced Repetition Algorithm Engine
+    function calculateSM2(cardState, quality) {
+      let { reps = 0, interval = 1, easeFactor = 2.5 } = cardState || {};
+      
+      // Quality rating: 1 (Again), 2 (Hard), 3 (Good), 4 (Easy)
+      if (quality < 3) {
+        reps = 0;
+        interval = 1;
+      } else {
+        if (reps === 0) {
+          interval = 1;
+        } else if (reps === 1) {
+          interval = 6;
+        } else {
+          interval = Math.round(interval * easeFactor);
+        }
+        reps += 1;
+      }
+
+      // Ease Factor calculation with minimum boundary at 1.3
+      easeFactor = Math.max(1.3, easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
+      
+      const now = Date.now();
+      const dueDate = now + (interval * 86400000); // interval in days converted to milliseconds
+
+      return {
+        reps,
+        interval,
+        easeFactor: Number(easeFactor.toFixed(2)),
+        dueDate,
+        lastReviewed: now,
+        lastQuality: quality
+      };
+    }
+
+    // 💾 Global Unified State Storage
+    const LOCAL_SUMMARIES_KEY = 'ketofoldoc_summaries_progress';
+    const LOCAL_SAUDI_KEY = 'saudi_board_progress';
+    const LOCAL_1000_KEY = 'thousand_qs_progress';
+
+    let summariesState = { readChapters: {}, quizAnswers: {} };
+    let saudiBoardCardStates = {};
+    let thousandQsCardStates = {};
+
+    function loadLocalProgress() {
+      try {
+        const sumSaved = localStorage.getItem(LOCAL_SUMMARIES_KEY);
+        if (sumSaved) summariesState = JSON.parse(sumSaved);
+
+        const saudiSaved = localStorage.getItem(LOCAL_SAUDI_KEY);
+        if (saudiSaved) saudiBoardCardStates = JSON.parse(saudiSaved).card_states || {};
+
+        const thSaved = localStorage.getItem(LOCAL_1000_KEY);
+        if (thSaved) thousandQsCardStates = JSON.parse(thSaved).card_states || {};
+      } catch (e) {}
+    }
+    loadLocalProgress();
+
+    // Cross-Platform Firestore & LocalStorage Sync
+    async function syncCardSRS(question, quality) {
+      const qId = question.id || question._generatedId;
+      const isSaudi = question._sourceName === 'Saudi Board QB';
+      const targetStates = isSaudi ? saudiBoardCardStates : thousandQsCardStates;
+      const targetStorageKey = isSaudi ? LOCAL_SAUDI_KEY : LOCAL_1000_KEY;
+      const targetFirestoreField = isSaudi ? 'saudi_board_progress' : 'thousand_qs_progress';
+
+      const existingState = targetStates[qId] || {};
+      const newCardState = calculateSM2(existingState, quality);
+
+      targetStates[qId] = newCardState;
+
+      // Save locally
+      try {
+        localStorage.setItem(targetStorageKey, JSON.stringify({ card_states: targetStates }));
+        localStorage.setItem(LOCAL_SUMMARIES_KEY, JSON.stringify(summariesState));
+      } catch (e) {}
+
+      // Push update directly to Firestore
+      if (currentUser && db) {
+        try {
+          const userDocRef = doc(db, 'users', currentUser.uid);
+          await setDoc(userDocRef, {
+            [targetFirestoreField]: { card_states: { [qId]: newCardState } },
+            summaries_progress: summariesState
+          }, { merge: true });
+        } catch (e) {
+          console.error("Firestore SRS sync error:", e);
+        }
+      }
+    }
+
+    // Auth State Listener
+    if (auth) {
+      onAuthStateChanged(auth, async (user) => {
+        currentUser = user;
+        const authBtnLabel = document.getElementById('auth-label');
+        
+        if (user) {
+          authBtnLabel.textContent = user.displayName ? user.displayName.split(' ')[0] : 'Account';
+          
+          if (db) {
+            try {
+              const snap = await getDoc(doc(db, 'users', user.uid));
+              if (snap.exists()) {
+                const data = snap.data();
+                if (data.summaries_progress) {
+                  summariesState.readChapters = { ...summariesState.readChapters, ...(data.summaries_progress.readChapters || {}) };
+                  summariesState.quizAnswers = { ...summariesState.quizAnswers, ...(data.summaries_progress.quizAnswers || {}) };
+                }
+                if (data.saudi_board_progress?.card_states) {
+                  saudiBoardCardStates = { ...saudiBoardCardStates, ...data.saudi_board_progress.card_states };
+                }
+                if (data.thousand_qs_progress?.card_states) {
+                  thousandQsCardStates = { ...thousandQsCardStates, ...data.thousand_qs_progress.card_states };
+                }
+              }
+            } catch (e) {
+              console.error("Error fetching cloud progress:", e);
+            }
+          }
+        } else {
+          authBtnLabel.textContent = 'Sign In';
+        }
+
+        if (activeChapterId) {
+          renderReader();
+        } else {
+          renderDirectory();
+        }
+      });
+    }
+
+    document.getElementById('btn-auth').onclick = async () => {
+      if (!auth) {
+        alert("Firebase credentials not configured yet. Progress is stored locally in your browser!");
+        return;
+      }
+      if (currentUser) {
+        if (confirm(`Signed in as ${currentUser.email || currentUser.displayName}.\nDo you want to sign out?`)) {
+          await signOut(auth);
+        }
+      } else {
+        const provider = new GoogleAuthProvider();
+        try {
+          await signInWithPopup(auth, provider);
+        } catch (err) {
+          console.error("Sign-in failed:", err);
+        }
+      }
+    };
 
     // 🗺️ Topic & Keyword Mapping Table for Miller Chapters
     const CHAPTER_TOPIC_MAP = {
@@ -562,95 +713,11 @@
       80: { topic: "neuro", keywords: ["neurocritical", "traumatic brain injury", "tbi", "stroke", "brain death", "subarachnoid hemorrhage", "vasospasm"] }
     };
 
-    // 🛠️ High-Fidelity Markdown Parser with Table Wrapping
     function formatMarkdown(text) {
       if (!text) return '';
       const rawHtml = marked.parse(text);
       return rawHtml.replace(/<table/g, '<div class="table-wrapper"><table').replace(/<\/table>/g, '</table></div>');
     }
-
-    // 💾 User Progress Data Structure (Reading & Quiz Status)
-    const STORAGE_KEY = 'ketofoldoc_summaries_progress';
-    let userProgress = {
-      readChapters: {}, // { "miller_ch10": true, "miller_ch58": true }
-      quizAnswers: {}   // { "ch58_q0": "B" }
-    };
-
-    // Load from Local Storage
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) userProgress = { ...userProgress, ...JSON.parse(saved) };
-    } catch (e) {}
-
-    // Save locally and sync to Firestore
-    async function saveProgress() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(userProgress));
-      } catch (e) {}
-
-      if (currentUser && db) {
-        try {
-          const userDocRef = doc(db, 'users', currentUser.uid);
-          await setDoc(userDocRef, { summaries_progress: userProgress }, { merge: true });
-        } catch (e) {
-          console.error("Firestore sync error:", e);
-        }
-      }
-    }
-
-    // Auth State Tracking & Cloud Sync
-    if (auth) {
-      onAuthStateChanged(auth, async (user) => {
-        currentUser = user;
-        const authBtnLabel = document.getElementById('auth-label');
-        
-        if (user) {
-          authBtnLabel.textContent = user.displayName ? user.displayName.split(' ')[0] : 'Account';
-          
-          // Pull remote data from Firestore
-          if (db) {
-            try {
-              const snap = await getDoc(doc(db, 'users', user.uid));
-              if (snap.exists() && snap.data().summaries_progress) {
-                const remote = snap.data().summaries_progress;
-                userProgress.readChapters = { ...userProgress.readChapters, ...(remote.readChapters || {}) };
-                userProgress.quizAnswers = { ...userProgress.quizAnswers, ...(remote.quizAnswers || {}) };
-                saveProgress();
-              }
-            } catch (e) {
-              console.error("Error fetching cloud progress:", e);
-            }
-          }
-        } else {
-          authBtnLabel.textContent = 'Sign In';
-        }
-
-        if (activeChapterId) {
-          renderReader();
-        } else {
-          renderDirectory();
-        }
-      });
-    }
-
-    document.getElementById('btn-auth').onclick = async () => {
-      if (!auth) {
-        alert("Firebase credentials not configured yet. Your progress is saved locally on this browser!");
-        return;
-      }
-      if (currentUser) {
-        if (confirm(`Signed in as ${currentUser.email || currentUser.displayName}.\nDo you want to sign out?`)) {
-          await signOut(auth);
-        }
-      } else {
-        const provider = new GoogleAuthProvider();
-        try {
-          await signInWithPopup(auth, provider);
-        } catch (err) {
-          console.error("Sign-in failed:", err);
-        }
-      }
-    };
 
     let activeBookId = allBooks[0]?.id || 'miller';
     let activeChapterId = null;
@@ -713,13 +780,23 @@
     }
 
     // Toggle Chapter Read Status
-    function toggleChapterRead(chapterId) {
-      if (userProgress.readChapters[chapterId]) {
-        delete userProgress.readChapters[chapterId];
+    async function toggleChapterRead(chapterId) {
+      if (summariesState.readChapters[chapterId]) {
+        delete summariesState.readChapters[chapterId];
       } else {
-        userProgress.readChapters[chapterId] = true;
+        summariesState.readChapters[chapterId] = true;
       }
-      saveProgress();
+      
+      try {
+        localStorage.setItem(LOCAL_SUMMARIES_KEY, JSON.stringify(summariesState));
+      } catch (e) {}
+
+      if (currentUser && db) {
+        try {
+          await setDoc(doc(db, 'users', currentUser.uid), { summaries_progress: summariesState }, { merge: true });
+        } catch (e) {}
+      }
+
       renderReader();
       renderDirectory();
     }
@@ -735,9 +812,8 @@
 
       badge.textContent = `${book.chapters.length} Chapters Available`;
 
-      // Calculate Progress
       const totalChapters = book.chapters.length;
-      const readCount = book.chapters.filter(ch => Boolean(userProgress.readChapters[ch.id])).length;
+      const readCount = book.chapters.filter(ch => Boolean(summariesState.readChapters[ch.id])).length;
       const percent = totalChapters > 0 ? Math.round((readCount / totalChapters) * 100) : 0;
 
       document.getElementById('overall-progress-text').textContent = `${readCount} / ${totalChapters} Chapters Read (${percent}%)`;
@@ -761,7 +837,7 @@
       }
 
       filtered.forEach(ch => {
-        const isRead = Boolean(userProgress.readChapters[ch.id]);
+        const isRead = Boolean(summariesState.readChapters[ch.id]);
         const card = document.createElement('div');
         
         card.className = isRead
@@ -931,7 +1007,7 @@
       }
     });
 
-    // 🎯 Dual-Bank Question Matching Engine (5 to 10 Questions)
+    // 🎯 Dual-Bank Question Matching Engine with SM-2 Spaced Repetition Integration
     function renderInteractiveQuestions(chapterNumber) {
       const container = document.getElementById('quiz-cards-container');
       const badge = document.getElementById('quiz-count-badge');
@@ -942,9 +1018,11 @@
       const allAvailableQuestions = [];
 
       questionChapters.forEach(deck => {
-        (deck.questions || []).forEach(q => {
+        (deck.questions || []).forEach((q, qIndex) => {
+          const generatedId = q.id || `${deck.id}_${qIndex}`;
           allAvailableQuestions.push({
             ...q,
+            _generatedId: generatedId,
             _deckTitle: deck.title || "Question Bank",
             _sourceName: deck.sourceName || "Question Bank",
             _sourceBadgeColor: deck.sourceBadgeColor || "purple"
@@ -957,6 +1035,7 @@
         return;
       }
 
+      // Score all questions
       const scored = allAvailableQuestions.map(q => {
         let score = 0;
         const fullContent = `${q.stem || ''} ${q.explanation || ''} ${Object.values(q.options || {}).join(' ')}`.toLowerCase();
@@ -996,8 +1075,9 @@
       if (selectedQuestions.length === 0) {
         const matchingDeck = questionChapters.find(d => (d.title || '').toLowerCase().includes(mapping.topic));
         if (matchingDeck && matchingDeck.questions) {
-          selectedQuestions = matchingDeck.questions.slice(0, TARGET_TOTAL).map(q => ({
+          selectedQuestions = matchingDeck.questions.slice(0, TARGET_TOTAL).map((q, qIndex) => ({
             ...q,
+            _generatedId: q.id || `${matchingDeck.id}_${qIndex}`,
             _deckTitle: matchingDeck.title,
             _sourceName: matchingDeck.sourceName || 'Question Bank',
             _sourceBadgeColor: matchingDeck.sourceBadgeColor || 'purple'
@@ -1014,8 +1094,8 @@
       badge.textContent = `${selectedQuestions.length} High-Yield Questions`;
 
       selectedQuestions.forEach((q, qIndex) => {
-        const cardKey = `ch${chapterNumber}_q${qIndex}`;
-        const selectedAns = userProgress.quizAnswers[cardKey];
+        const qId = q.id || q._generatedId;
+        const selectedAns = summariesState.quizAnswers[qId];
         const isRevealed = Boolean(selectedAns);
 
         const isSaudi = q._sourceName === 'Saudi Board QB';
@@ -1023,14 +1103,28 @@
           ? 'bg-blue-950/80 text-blue-300 border-blue-800/60' 
           : 'bg-emerald-950/80 text-emerald-300 border-emerald-800/60';
 
+        // Retrieve existing SRS state for this question
+        const cardStates = isSaudi ? saudiBoardCardStates : thousandQsCardStates;
+        const existingSRS = cardStates[qId];
+
         const card = document.createElement('div');
         card.className = 'bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-lg';
+
+        let srsBadgeHtml = '';
+        if (existingSRS && existingSRS.interval) {
+          srsBadgeHtml = `
+            <span class="px-2 py-0.5 rounded bg-slate-800 text-[10px] font-semibold text-slate-400 border border-slate-700/60 flex items-center">
+              <i data-lucide="repeat" class="w-3 h-3 mr-1 text-purple-400"></i> ${existingSRS.interval}d interval
+            </span>
+          `;
+        }
 
         let cardHtml = `
           <div class="flex items-center justify-between text-xs font-semibold text-slate-400 mb-3">
             <div class="flex items-center space-x-2">
               <span class="px-2.5 py-0.5 rounded bg-slate-800 text-purple-300 border border-slate-700/60 font-bold">Question ${qIndex + 1}</span>
               <span class="px-2 py-0.5 rounded border text-[10px] font-bold uppercase tracking-wider ${badgeStyle}">${q._sourceName}</span>
+              ${srsBadgeHtml}
             </div>
             <span class="text-[11px] text-slate-400 truncate max-w-[200px]">${q._deckTitle}</span>
           </div>
@@ -1062,24 +1156,65 @@
         });
         cardHtml += `</div>`;
 
+        // Explanation & Spaced Repetition Rating Panel
         if (isRevealed) {
           cardHtml += `
             <div class="mt-5 pt-4 border-t border-slate-800 text-sm text-slate-300 leading-relaxed bg-slate-950/60 p-4 sm:p-5 rounded-xl">
               <div class="font-bold text-emerald-400 mb-1.5 flex items-center">
                 <i data-lucide="check-circle" class="w-4 h-4 mr-1.5"></i> Correct Answer: Option ${q.correctAnswer}
               </div>
-              <div class="text-slate-300 prose-reading">${formatMarkdown(q.explanation) || 'No rationale provided.'}</div>
+              <div class="text-slate-300 prose-reading mb-5">${formatMarkdown(q.explanation) || 'No rationale provided.'}</div>
+              
+              <!-- SM-2 Spaced Repetition Rating Action Bar -->
+              <div class="pt-4 border-t border-slate-800/80">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
+                  Update Spaced Repetition Memory State
+                </span>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  <button type="button" data-quality="1" class="srs-btn py-2 px-3 bg-slate-900 hover:bg-rose-950/50 border border-slate-800 hover:border-rose-500/60 rounded-xl text-xs font-semibold text-rose-300 transition flex flex-col items-center">
+                    <span>Again</span>
+                    <span class="text-[10px] text-slate-500">1 day</span>
+                  </button>
+                  <button type="button" data-quality="2" class="srs-btn py-2 px-3 bg-slate-900 hover:bg-amber-950/50 border border-slate-800 hover:border-amber-500/60 rounded-xl text-xs font-semibold text-amber-300 transition flex flex-col items-center">
+                    <span>Hard</span>
+                    <span class="text-[10px] text-slate-500">3 days</span>
+                  </button>
+                  <button type="button" data-quality="3" class="srs-btn py-2 px-3 bg-slate-900 hover:bg-blue-950/50 border border-slate-800 hover:border-blue-500/60 rounded-xl text-xs font-semibold text-blue-300 transition flex flex-col items-center">
+                    <span>Good</span>
+                    <span class="text-[10px] text-slate-500">6 days</span>
+                  </button>
+                  <button type="button" data-quality="4" class="srs-btn py-2 px-3 bg-slate-900 hover:bg-emerald-950/50 border border-slate-800 hover:border-emerald-500/60 rounded-xl text-xs font-semibold text-emerald-300 transition flex flex-col items-center">
+                    <span>Easy</span>
+                    <span class="text-[10px] text-slate-500">12 days</span>
+                  </button>
+                </div>
+              </div>
+
             </div>
           `;
         }
 
         card.innerHTML = cardHtml;
 
+        // Option Click -> Reveal Answer & Automatically Execute Initial SM-2 Calculation
         card.querySelectorAll('.options-wrapper button').forEach(btn => {
-          btn.onclick = () => {
+          btn.onclick = async () => {
             const letter = btn.getAttribute('data-letter');
-            userProgress.quizAnswers[cardKey] = letter;
-            saveProgress();
+            summariesState.quizAnswers[qId] = letter;
+
+            // Determine initial automatic SM-2 rating (Good=3 if correct, Again=1 if incorrect)
+            const initialQuality = (letter === q.correctAnswer) ? 3 : 1;
+            await syncCardSRS(q, initialQuality);
+
+            renderInteractiveQuestions(chapterNumber);
+          };
+        });
+
+        // Custom Manual SM-2 Rating Adjustments
+        card.querySelectorAll('.srs-btn').forEach(srsBtn => {
+          srsBtn.onclick = async () => {
+            const quality = parseInt(srsBtn.getAttribute('data-quality'), 10);
+            await syncCardSRS(q, quality);
             renderInteractiveQuestions(chapterNumber);
           };
         });
@@ -1114,7 +1249,7 @@
       document.getElementById('chapter-sections-count-val').textContent = `${(ch.sections || []).length} Sections`;
 
       // Update "Mark as Read" Toggle Buttons
-      const isRead = Boolean(userProgress.readChapters[ch.id]);
+      const isRead = Boolean(summariesState.readChapters[ch.id]);
       const topBtn = document.getElementById('btn-toggle-read-top');
       const topText = document.getElementById('btn-toggle-read-text-top');
       const bottomBtn = document.getElementById('btn-toggle-read-bottom');
@@ -1160,7 +1295,7 @@
         container.appendChild(secDiv);
       });
 
-      // Render Interactive Recall Practice from Dual Banks
+      // Render Interactive Recall Practice with Cross-Platform SM-2
       renderInteractiveQuestions(ch.chapterNumber || 1);
 
       // Chapter Next/Prev Navigation
@@ -1259,7 +1394,7 @@
 
       book.chapters.forEach(ch => {
         const isCurrent = ch.id === activeChapterId;
-        const isRead = Boolean(userProgress.readChapters[ch.id]);
+        const isRead = Boolean(summariesState.readChapters[ch.id]);
 
         const item = document.createElement('div');
         item.className = `p-3.5 rounded-xl border flex items-center justify-between transition cursor-pointer select-none ${
